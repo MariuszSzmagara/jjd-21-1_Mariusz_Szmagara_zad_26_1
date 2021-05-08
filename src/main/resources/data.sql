@@ -1,4 +1,4 @@
-INSERT INTO recipe(id, name, serves, preparation_time, category, likes_counter, is_liked)
+INSERT INTO recipe(id, title, serves, preparation_time, category, likes_counter, is_liked)
 VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAST', 30, false),
        (2, 'Shakshuka with Feta, Olives, and Peppers', 4, 50, 'BREAKFAST', 69, false),
        (3, 'Frittata with Potatoes, Red Peppers, and Spinach', 6, 40, 'BREAKFAST', 48, false),

@@ -18,8 +18,8 @@
         <form action="#" th:action="@{/addNewRecipe}" method="post" th:object="${newRecipe}">
             <div class="d-flex flex-column">
                 <div class="form-group col-md-8">
-                    <label for="inputName">NAME OF RECIPE</label>
-                    <input type="text" th:field="*{name}" class="form-control" id="inputName">
+                    <label for="inputName">TITLE OF RECIPE</label>
+                    <input type="text" th:field="*{title}" class="form-control" id="inputName">
                 </div>
                 <div class="form-group col-md-8">
                     <label for="inputPreparationTime">PREPARATION TIME</label>

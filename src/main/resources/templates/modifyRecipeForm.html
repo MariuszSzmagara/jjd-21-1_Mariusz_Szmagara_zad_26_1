@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout.html}">
 <head>
-    <title th:text="${recipeToModify.name}"></title>
+    <title th:text="${recipeToModify.title}"></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link th:href="@{/style/main.css}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,12 +14,13 @@
 <body>
 <div>
     <section layout:fragment="content">
-        <h2 th:text="|MODIFY RECIPE - ${recipeToModify.name.toUpperCase()}|"></h2>
+        <h2 th:text="|MODIFY RECIPE - ${recipeToModify.title.toUpperCase()}|"></h2>
         <form action="#" th:action="|/recipe/${recipeToModify.id}/update|" method="post" th:object="${recipeToModify}">
+            <input type="hidden" th:field="*{id}"/>
             <div class="d-flex flex-column">
                 <div class="form-group col-md-8">
-                    <label for="inputName">NAME OF RECIPE</label>
-                    <input type="text" th:field="*{name}" class="form-control" id="inputName">
+                    <label for="inputName">TITLE OF RECIPE</label>
+                    <input type="text" th:field="*{title}" class="form-control" id="inputName">
                 </div>
                 <div class="form-group col-md-8">
                     <label for="inputPreparationTime">PREPARATION TIME</label>

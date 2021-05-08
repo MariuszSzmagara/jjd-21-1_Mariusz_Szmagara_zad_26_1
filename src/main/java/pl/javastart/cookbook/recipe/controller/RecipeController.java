@@ -69,18 +69,17 @@ public class RecipeController {
     @PostMapping("/recipe/{id}/update")
     public String updateRecipeById(Recipe recipeToUpdate) {
         recipeRepository.save(recipeToUpdate);
-        return "modifyRecipeForm";
+        return "redirect:/";
     }
 
     @GetMapping("/recipe/{id}/changeLickedStatus/{isLiked}")
     public String updateRecipeLickedStatusById(@PathVariable Long id, @PathVariable boolean isLiked, @RequestParam int likesCounter) {
         if (isLiked) {
             likesCounter++;
-            recipeRepository.updateRecipeIsLickedById(isLiked, likesCounter, id);
         } else {
             likesCounter--;
-            recipeRepository.updateRecipeIsLickedById(isLiked, likesCounter, id);
         }
+        recipeRepository.updateRecipeIsLickedById(isLiked, likesCounter, id);
         return "redirect:/";
     }
 

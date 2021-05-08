@@ -9,7 +9,7 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String title;
     @Enumerated(EnumType.STRING)
     private Category category;
     private int serves;
@@ -24,9 +24,9 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, Category category, int serves, int likesCounter, boolean isLiked, int preparationTime,
+    public Recipe(String title, Category category, int serves, int likesCounter, boolean isLiked, int preparationTime,
                   List<Ingredient> ingredients, List<PreparationInstruction> preparationInstructions) {
-        this.name = name;
+        this.title = title;
         this.category = category;
         this.serves = serves;
         this.likesCounter = likesCounter;
@@ -44,12 +44,12 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = name;
     }
 
     public Category getCategory() {

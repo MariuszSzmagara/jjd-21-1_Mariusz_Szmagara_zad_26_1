@@ -1,0 +1,13 @@
+body {
+    padding-bottom: 50px;
+}
+
+.recipe-box .box-image {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.box-image img {
+    width: 100%;
+    border: none;
+}

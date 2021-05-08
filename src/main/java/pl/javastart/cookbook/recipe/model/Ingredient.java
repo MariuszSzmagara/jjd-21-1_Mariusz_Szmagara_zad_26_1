@@ -11,7 +11,7 @@ public class Ingredient {
     private double quantity;
     @Enumerated(EnumType.STRING)
     private Measurement measurement;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Recipe recipe;
 
     public Ingredient() {

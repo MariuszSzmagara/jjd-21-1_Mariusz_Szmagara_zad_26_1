@@ -32,11 +32,14 @@
                         <i th:text="${recipeToDisplay.category.name()}">Recipe category</i>
                     </div>
                     <div>
-                        <a class="fa fa-thumbs-up"
-                           th:href="|/recipe/${recipeToDisplay.id}/changeLickedStatus/${not recipeToDisplay.isLiked()}?likesCounter=${recipeToDisplay.getLikesCounter()}|"
-                           th:style="${recipeToDisplay.isLiked() ? 'color: dodgerblue;' : 'color: black;'}"></a>
-                        <a class="glyphicon glyphicon-floppy-remove" style="color: black"
-                           th:href="|/recipe/${recipeToDisplay.id}/delete|"></a>
+                        <i th:text="|Likes: ${recipeToDisplay.getLikesCounter()}|">Recipe likes number</i>
+                        <div>
+                            <a class="fa fa-thumbs-up"
+                               th:href="|/recipe/${recipeToDisplay.id}/changeLickedStatus/${not recipeToDisplay.isLiked()}?likesCounter=${recipeToDisplay.getLikesCounter()}|"
+                               th:style="${recipeToDisplay.isLiked() ? 'color: dodgerblue;' : 'color: black;'}"></a>
+                            <a class="glyphicon glyphicon-floppy-remove" style="color: black"
+                               th:href="|/recipe/${recipeToDisplay.id}/delete|"></a>
+                        </div>
                     </div>
                 </div>
                 <div>

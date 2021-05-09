@@ -1,18 +1,33 @@
-var faqs_row = 0;
-function addfaqs() {
-    html = '<tr id="faqs-row' + faqs_row + '">';
-    html += '<td><input type="number" class="form-control" placeholder="Quantity"></td>';
-    html += '<td><select class="form-control">\n' +
-        '                                        <option th:value="${measurement}"\n' +
-        '                                                th:each="measurement : ${T(pl.javastart.cookbook.recipe.model.Measurement).values()}"\n' +
-        '                                                th:text="${measurement.name()}">MEASUREMENT</option>\n' +
-        '                                    </select></td>';
-    html += '<td><input type="text" class="form-control" placeholder="Ingredient"></td>';
-    html += '<td class="mt-10"><button class="badge badge-danger" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="fa fa-trash"></i> Delete</button></td>';
+function addIngredient(){
+    var row = $("#ingredients > tbody > tr:first").html();
+    $('#ingredients > tbody ').append('<tr>'+row+'</tr>');
 
-    html += '</tr>';
+}
 
-    $('#faqs tbody').append(html);
+function removeIngredient(obj){
+    var row =  $('#ingredients > tbody > tr').length;
 
-    faqs_row++;
+    if(row <= 1){
+        alert("Recipe has to have at least one ingredient!");
+        return;
+    }
+
+    $(obj).parent().parent().remove();
+}
+
+function addPreparationInstruction(){
+    var row = $("#preparationInstructions > tbody > tr:first").html();
+    $('#preparationInstructions > tbody ').append('<tr>'+row+'</tr>');
+
+}
+
+function removePreparationInstruction(obj){
+    var row =  $('#preparationInstructions > tbody > tr').length;
+
+    if(row <= 1){
+        alert("Recipe has to have at least one preparation instruction!");
+        return;
+    }
+
+    $(obj).parent().parent().remove();
 }

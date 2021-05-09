@@ -46,8 +46,8 @@
                     INGREDIENTS:
                 </h2>
                 <div class="form-group col-md-8" th:each="ingredient, stat : *{ingredients}">
-                    <input type="hidden" th:field="*{ingredients[__${stat.index}__].recipe.id}"/>
                     <input type="hidden" th:field="*{ingredients[__${stat.index}__].id}"/>
+                    <input type="hidden" th:field="*{ingredients[__${stat.index}__].recipe.id}"/>
                     <div class="row">
                         <div class="col-sm">
                             <label for="inputQuantity">QUANTITY</label>
@@ -71,8 +71,8 @@
                     PREPARATION INSTRUCTIONS:
                 </h2>
                 <div th:each="instruction, stat : *{preparationInstructions}">
-                    <input type="hidden" th:field="*{preparationInstructions[__${stat.index}__].recipe.id}"/>
                     <input type="hidden" th:field="*{preparationInstructions[__${stat.index}__].id}"/>
+                    <input type="hidden" th:field="*{preparationInstructions[__${stat.index}__].recipe.id}"/>
                     <div class="form-group col-md-8">
                         <label for="inputPreparationInstructionName">NAME OF PREPARATION INSTRUCTION</label>
                         <input type="text" th:field="*{preparationInstructions[__${stat.index}__].name}" class="form-control" id="inputPreparationInstructionName">

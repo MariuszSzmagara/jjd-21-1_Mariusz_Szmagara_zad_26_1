@@ -34,9 +34,11 @@
                     <div>
                         <i th:text="|Likes: ${recipeToDisplay.getLikesCounter()}|">Recipe likes number</i>
                         <div>
-                            <a class="fa fa-thumbs-up"
-                               th:href="|/recipe/${recipeToDisplay.id}/changeLickedStatus/${not recipeToDisplay.isLiked()}?likesCounter=${recipeToDisplay.getLikesCounter()}|"
-                               th:style="${recipeToDisplay.isLiked() ? 'color: dodgerblue;' : 'color: black;'}"></a>
+                            <form th:action="|/recipe/${recipeToDisplay.id}/updateLikesCounter/like|" method="post">
+                                <button type="submit">
+                                    <a type="submit" class="fa fa-thumbs-up"  style="color: black"></a>
+                                </button>
+                            </form>
                             <a class="glyphicon glyphicon-floppy-remove" style="color: black"
                                th:href="|/recipe/${recipeToDisplay.id}/delete|"></a>
                         </div>
@@ -45,22 +47,18 @@
                 <div>
                     <h2><a th:text="${recipeToDisplay.title}">Title of the recipe</a></h2>
                 </div>
+                <h4>INGREDIENTS:</h4>
                 <div>
                     <ul>
-                        INGREDIENTS:
                         <li th:each="ingredient : ${recipeToDisplay.getIngredients()}">
                             <span th:text="|${ingredient.getQuantity()}  ${ingredient.getMeasurement()} - ${ingredient.getName()} |"></span>
                         </li>
 
                     </ul>
                 </div>
-                <div class="list-group">
-                    <a th:each="preparationInstruction : ${recipeToDisplay.getPreparationInstructions()}" class="list-group-item list-group-item-action active" aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1" th:text="${preparationInstruction.name}">Preparation instruction name</h5>
-                        </div>
-                        <p class="mb-1" th:text="${preparationInstruction.description}">Preparation instruction description</p>
-                    </a>
+                <h4>PREPARATION INSTRUCTIONS:</h4>
+                <div class="list-group" th:utext="${recipeToDisplay.preparationInstructions}">
+
                 </div>
                 <div class="col-12">
                     <a th:href="|/recipe/${recipeToDisplay.id}/modify|">MODIFY</a>

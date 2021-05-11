@@ -19,8 +19,8 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
     @Transactional
     @Modifying
-    @Query("UPDATE Recipe recipe SET recipe.isLiked = :isLicked, recipe.likesCounter = :likesCounter WHERE recipe.id = :id")
-    void updateRecipeIsLickedById(@Param("isLicked") boolean isLicked, @Param("likesCounter") int likesCounter, @Param("id") Long id);
+    @Query("UPDATE Recipe recipe SET recipe.likesCounter = recipe.likesCounter + :byHowMuch WHERE recipe.id = :id")
+    void updateRecipeLikesCounterById(@Param("id") Long id, @Param("byHowMuch") int byHowMuch);
 
     @Transactional
     @Modifying

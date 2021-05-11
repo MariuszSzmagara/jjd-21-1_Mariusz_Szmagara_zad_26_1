@@ -10,27 +10,25 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    @Column(length = 5_000)
+    private String preparationInstructions;
     @Enumerated(EnumType.STRING)
     private Category category;
     private int serves;
     private int likesCounter;
-    private boolean isLiked;
     private int preparationTime;
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Ingredient> ingredients;
-    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
-    private List<PreparationInstruction> preparationInstructions;
 
     public Recipe() {
     }
 
-    public Recipe(String title, Category category, int serves, int likesCounter, boolean isLiked, int preparationTime,
-                  List<Ingredient> ingredients, List<PreparationInstruction> preparationInstructions) {
+    public Recipe(String title, Category category, int serves, int likesCounter, int preparationTime,
+                  List<Ingredient> ingredients, String preparationInstructions) {
         this.title = title;
         this.category = category;
         this.serves = serves;
         this.likesCounter = likesCounter;
-        this.isLiked = isLiked;
         this.preparationTime = preparationTime;
         this.ingredients = ingredients;
         this.preparationInstructions = preparationInstructions;
@@ -76,14 +74,6 @@ public class Recipe {
         this.likesCounter = likesCounter;
     }
 
-    public boolean isLiked() {
-        return isLiked;
-    }
-
-    public void setLiked(boolean liked) {
-        isLiked = liked;
-    }
-
     public int getPreparationTime() {
         return preparationTime;
     }
@@ -100,11 +90,11 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public List<PreparationInstruction> getPreparationInstructions() {
+    public String getPreparationInstructions() {
         return preparationInstructions;
     }
 
-    public void setPreparationInstructions(List<PreparationInstruction> preparationInstructions) {
+    public void setPreparationInstructions(String preparationInstructions) {
         this.preparationInstructions = preparationInstructions;
     }
 }

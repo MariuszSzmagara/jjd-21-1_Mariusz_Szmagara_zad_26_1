@@ -37,9 +37,11 @@
                             <div>
                                 <i th:text="|Likes: ${recipe.getLikesCounter()}|">Recipe likes number</i>
                                 <div>
-                                    <a class="fa fa-thumbs-up"
-                                       th:href="|/recipe/${recipe.id}/changeLickedStatus/${not recipe.isLiked()}?likesCounter=${recipe.getLikesCounter()}|"
-                                       th:style="${recipe.isLiked() ? 'color: dodgerblue;' : 'color: black;'}"></a>
+                                    <form th:action="|/recipe/${recipe.id}/updateLikesCounter/like|" method="post">
+                                        <button type="submit">
+                                            <a type="submit" class="fa fa-thumbs-up"  style="color: black"></a>
+                                        </button>
+                                    </form>
                                     <a class="glyphicon glyphicon-floppy-remove" style="color: black"
                                        th:href="|/recipe/${recipe.id}/delete|"></a>
                                 </div>

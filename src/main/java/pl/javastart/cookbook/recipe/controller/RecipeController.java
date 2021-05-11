@@ -1,14 +1,11 @@
 package pl.javastart.cookbook.recipe.controller;
 
-import org.dom4j.rule.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import pl.javastart.cookbook.recipe.model.Category;
-import pl.javastart.cookbook.recipe.model.Ingredient;
 import pl.javastart.cookbook.recipe.model.Recipe;
 import pl.javastart.cookbook.recipe.repository.RecipeRepository;
 
@@ -17,7 +14,7 @@ import java.util.Optional;
 
 @Controller
 public class RecipeController {
-    private RecipeRepository recipeRepository;
+    private final RecipeRepository recipeRepository;
 
     public RecipeController(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
@@ -67,19 +64,14 @@ public class RecipeController {
     }
 
     @PostMapping("/recipe/{id}/update")
-    public String updateRecipeById(Recipe recipeToUpdate) {
+    public String updateWholeRecipeById(Recipe recipeToUpdate) {
         recipeRepository.save(recipeToUpdate);
         return "redirect:/";
     }
 
-    @GetMapping("/recipe/{id}/changeLickedStatus/{isLiked}")
-    public String updateRecipeLickedStatusById(@PathVariable Long id, @PathVariable boolean isLiked, @RequestParam int likesCounter) {
-        if (isLiked) {
-            likesCounter++;
-        } else {
-            likesCounter--;
-        }
-        recipeRepository.updateRecipeIsLickedById(isLiked, likesCounter, id);
+    @PostMapping("/recipe/{id}/updateLikesCounter/like")
+    public String updateRecipeLikesCounterById(@PathVariable Long id) {
+        recipeRepository.updateRecipeLikesCounterById(id, 1);
         return "redirect:/";
     }
 

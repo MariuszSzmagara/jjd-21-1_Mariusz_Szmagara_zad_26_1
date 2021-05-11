@@ -18,7 +18,7 @@
                 <div class="col-md-4 col-sm-6" th:each="recipeByCategory : ${recipesListByCategory}">
                     <div class="recipe-box">
                         <div class="box-image" th:switch="${recipeByCategory.category.name()}">
-                            <a th:href="|/display/recipe/${recipeByCategory.id}|">
+                            <a th:href="|/recipe/${recipeByCategory.id}/display|">
                                 <img th:case="'BREAKFAST'" th:src="@{/images/amaranth-color.jpg}">
                                 <img th:case="'LUNCH'" th:src="@{/images/coquelicot-color.jpg}">
                                 <img th:case="'DINNER'" th:src="@{/images/glaucous-color.jpg}">
@@ -35,11 +35,16 @@
                                 <i th:text="${recipeByCategory.category.name()}">Recipe category</i>
                             </div>
                             <div>
-                                <a class="fa fa-thumbs-up"
-                                   th:href="|/recipe/${recipeByCategory.id}/changeLickedStatus/${not recipeByCategory.isLiked()}?likesCounter=${recipeByCategory.getLikesCounter()}|"
-                                   th:style="${recipeByCategory.isLiked() ? 'color: dodgerblue;' : 'color: black;'}"></a>
-                                <a class="glyphicon glyphicon-floppy-remove" style="color: black"
-                                   th:href="|/recipe/${recipeByCategory.id}/delete|"></a>
+                                <i th:text="|Likes: ${recipeByCategory.getLikesCounter()}|">Recipe likes number</i>
+                                <div>
+                                    <form th:action="|/recipe/${recipeByCategory.id}/updateLikesCounter/like|" method="post">
+                                        <button type="submit">
+                                            <a type="submit" class="fa fa-thumbs-up"  style="color: black"></a>
+                                        </button>
+                                    </form>
+                                    <a class="glyphicon glyphicon-floppy-remove" style="color: black"
+                                       th:href="|/recipe/${recipeByCategory.id}/delete|"></a>
+                                </div>
                             </div>
                         </div>
                         <h2><a th:href="|/display/recipe/${recipeByCategory.id}|"

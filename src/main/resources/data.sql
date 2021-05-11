@@ -1,16 +1,157 @@
-INSERT INTO recipe(id, title, serves, preparation_time, category, likes_counter, is_liked)
-VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAST', 30, false),
-       (2, 'Shakshuka with Feta, Olives, and Peppers', 4, 50, 'BREAKFAST', 69, false),
-       (3, 'Frittata with Potatoes, Red Peppers, and Spinach', 6, 40, 'BREAKFAST', 48, false),
-       (4, 'Classic Chicken Salad', 4, 30, 'LUNCH', 52, false),
-       (5, 'Ham Salad', 4, 10, 'LUNCH', 23, false),
-       (6, 'Best Ever Tuna Salad Sandwich', 1, 5, 'LUNCH', 77, false),
-       (7, 'Classic Baked Chicken', 4, 65, 'DINNER', 100, false),
-       (8, 'Kentucky Hot Brown', 2, 30, 'DINNER', 90, false),
-       (9, 'Easy Homemade Hummus', 2, 5, 'SNACKS', 77, false),
-       (10, 'Mango Salsa', 1, 10, 'SNACKS', 123, false),
-       (11, 'Brownie in a Mug', 1, 5, 'DESSERT', 91, false),
-       (12, 'Rice Pudding', 4, 35, 'DESSERT', 126, false);
+INSERT INTO recipe(id, title, serves, preparation_time, category, likes_counter, preparation_instructions)
+VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAST', 30,
+        '<ol>
+            <li>Sauté the onion and garlic:</li>
+            <p> Heat the olive oil in a large skillet over medium. Add 3/4 of the sliced onion and sauté until nearly tender, about 5 minutes. Add the garlic and sauté to soften, 2 minutes.</p>
+            <li>Blend the sauce:</li>
+            <p>Transfer the cooked onion and garlic to a blender along with the beans, including the bean liquid, chipotle, lime juice, cumin, salt, and 1/2 cup water. Blend until smooth and creamy. Taste and add more salt if needed, then blend again.</p>
+            <li>Heat the sauce:</li>
+            <p>Transfer the beans back to the large skillet set over low heat. Cook for 4 to 6 minutes at simmer. The sauce should be the texture of a thick soup. Add more water, if needed, to thin to the appropriate consistency.</p>
+            <li>Assemble the dish:</li>
+            <p>Use a pair of tongs to heat a tortilla over a gas flame or in a dry skillet set over high heat until it begins to blister. Submerge the tortilla in the bean sauce, smothering it completely. Use a spatula to fold it in half and transfer to a dinner plate. Top with a tablespoon of cotija, a slice or 2 of avocado, and a tangle of raw sliced onions. Continue with remaining tortillas and bean sauce, figuring 2 enfrijoladas per plate.</p>
+            <li>Serve:</li>
+            <p>Serve immediately with the salsa, cilantro, sour cream and any remaining bean sauce for guests to add as they please.</p>
+        </ol>'
+                ),
+       (2, 'Shakshuka with Feta, Olives, and Peppers', 4, 50, 'BREAKFAST', 69,
+        '<ol>
+            <li>Cook the onion and peppers:</li>
+            <p>In a large skillet over medium heat, heat the oil. Add the paprika, cumin, and pepper flakes and cook for 30 seconds to a minute to bloom the spices. Add the onion and cook, stirring occasionally, for 3 minutes. Add the garlic, red pepper, and yellow pepper and cook, stirring occasionally, for 15 minutes, or until the vegetables soften.</p>
+            <li>Crush the tomatoes and simmer them with the peppers:</li>
+            <p>In a bowl, break up the tomatoes with your hands. Add them to the skillet with the salt and cook for 5 minutes. Taste and add more salt, if you prefer.</p>
+            <li>Cook the eggs:</li>
+            <p>With the back of a spoon or a ladle, make 4 indentations in the sauce. Break an egg into a cup and carefully pour it into and indentation, being careful not to break the yolk. Repeat with the remaining eggs. (You can crack the egg directly into the sauce and skip the cup, but it’s easier to get a an errant egg shell or protect the dish from a bad egg if you use the cup method.) Sprinkle the feta and olives around the eggs. Cover the pan and simmer over medium heat for 8 minutes, or until the whites are set and the yolks are still soft. (If you like your eggs well done, cook for a minute or two longer.)</p>
+            <li>To serve:</li>
+            <p>Garnish with cilantro leaves and a sprinkling of red pepper flakes. Bring to the table and serve from the pan.</p>
+        </ol>'
+        ),
+       (3, 'Frittata with Potatoes, Red Peppers, and Spinach', 6, 40, 'BREAKFAST', 48,
+        '<ol>
+            <li>Preheat oven to 400F</li>
+            <p> Heat the olive oil in a large skillet over medium. Add 3/4 of the sliced onion and sauté until nearly tender, about 5 minutes. Add the garlic and sauté to soften, 2 minutes.</p>
+            <li>Set aside:</li>
+            <p>In a small bowl, whisk eggs and milk together</p>
+            <li>Cook the onions and garlic:</li>
+            <p>Heat olive oil in a 10-inch oven-safe skillet or pan over medium heat. Add the turmeric and stir so that turmeric dissolves into the oil. Add diced onions and cook, stirring occasionally, until they start to soften, about 2 minutes. Add minced garlic and stir for 30 seconds.</p>
+            <li>Cook the potatoes and other vegetables:</li>
+            <p>Add the potatoes and a generous pinch of salt and cook, stirring occasionally, until some of the slices start to brown, 5 to 6 minutes. Add the red pepper and cook until they start to soften, about 2 minutes. Add scallions and spinach leaves and cook until the leaves start to wilt, stirring occasionally.</p>
+            <li>Pour egg mixture into the skillet:</li>
+            <p>Reduce heat to medium-low. Cook until the eggs start to set on the bottom, about 2 to 3 minutes</p>
+            <li>Place skillet in the oven and bake for 8 to 9 minutes, until the center is set</li>
+            <p>Remove skillet from oven with oven mitts. Let frittata cool for 5 minutes before serving. Cut into wedges and season with more salt and some ground pepper, if desired. Frittata will keep refrigerated for 5 days. Leftovers can be eaten chilled or briefly warmed in the microwave.</p>
+        </ol>'
+        ),
+       (4, 'Classic Chicken Salad', 4, 30, 'LUNCH', 52,
+        '<ol>
+            <li>Poach the chicken (skip if using already cooked chicken):</li>
+            <p> Bring a pot with 2 quarts of well salted water (1 tablespoon salt) to a boil. Add the chicken breast (cut into large chunks) and return the water to a simmer. Then turn off the heat, and cover the pot. Let the chicken sit for 15 minutes (time it) or more while you prepare everything else.</p>
+            <li>Make the dressing:</li>
+            <p>Prepare the chicken salad dressing in a large bowl. Mix together the mayonnaise, preserves, and lemon juice. Taste for the proper balance of sweetness and acidity. The salad dressing should not be too sweet, nor too sour. Add more preserves or lemon juice until you have reached the balance you want. Add salt and pepper to taste.</p>
+            <li>Mix ingredients:</li>
+            <p>Mix in the chopped celery, bell pepper, olives, red onion, and apple</p>
+            <li>Dice the chicken, mix with dressing and vegetables:</li>
+            <p>Remove the chicken from the poaching water and dice it. (Or dice already cooked chicken if that is what you are using for this salad.) Mix it in with the dressing and vegetables</p>
+            <li>Add lettuce:</li>
+            <p>At this point you can make ahead. When ready to serve, fold in the sliced and chopped iceberg lettuce.</p>
+        </ol>'
+        ),
+       (5, 'Ham Salad', 4, 10, 'LUNCH', 23,
+        '<ol>
+            <li>Mix the ham salad:</li>
+            <p> Mix everything with the salt, pepper and cayenne in a large bowl. Taste and add cayenne, salt and black pepper to taste. Serve chilled.</p>
+            <li>Serve:</li>
+            <p>Serve straight, or mixed in with macaroni, or in a sandwich in a hamburger bun, slider roll, Kaiser roll, regular bread, in a pita or as a wrap. Good with lemonade on a hot day.</p>
+        </ol>'
+        ),
+       (6, 'Best Ever Tuna Salad Sandwich', 1, 5, 'LUNCH', 77,
+        '<ol>
+            <li>Mix:</li>
+            <p>In a medium bowl, mix all of the ingredients until combined.</p>
+            <li>Serve:</li>
+            <p>Serve tuna salad on toast, either open faced, or in a regular sandwich with lettuce and tomatoes. For a low carb option, serve on sliced lettuce.</p>
+        </ol>'
+        ),
+       (7, 'Classic Baked Chicken', 4, 65, 'DINNER', 100,
+        '<ol>
+            <li>Trim and salt the chicken:</li>
+            <p>Trim the chicken pieces of excess fat. Pat the chicken pieces dry with a paper towel. Sprinkle all sides with salt. Let the chicken pieces sit for 15 to 20 minutes to take the chill off.</p>
+            <li>Preheat the oven to 400°F (205°C)</li>
+            <p></p>
+            <li>Prep the chicken:</li>
+            <p>Pat the chicken pieces dry with a paper towel. Rub olive oil over the chicken pieces and on the bottom of the roasting pan. Sprinkle the chicken pieces all over with black pepper and a little more salt. Arrange the chicken pieces in the pan so that all the pieces are skin-side up, and the largest pieces (the breasts) are in the center of the pan. Dont crowd the pan; allow room in between the pieces.</p>
+            <li>Bake the chicken:</li>
+            <p>Bake (uncovered) in the oven for 30 minutes at 400°F (205°C). This initial high heat will help brown the chicken. Then lower the heat to 350°F (175°C) and bake for an additional 10-30 minutes until the juices run clear (not pink) when poked with a sharp knife or the internal temperature of the chicken breasts is 165°F (74°C), and of the thighs is 170°F (77°C) when tested with a meat thermometer. If the chicken isnt browning well enough, place the chicken under the broiler for the last 5 minutes of cooking, until browned sufficiently.</p>
+            <li>Let it rest:</li>
+            <p>Remove from oven and transfer the chicken to a serving dish. Tent with aluminum foil and let rest for 5 to 10 minutes before serving.</p>
+            <li>Make gravy:</li>
+            <p>If you would like to make gravy with the drippings from the chicken, place the roasting pan with all its drippings on the stovetop and set the burner to medium heat. Use a metal spatula to scrape up the stuck drippings from the bottom of the pan. When the pan is hot, pour in some white wine or chicken stock to help loosen the drippings from the pan. Transfer the drippings and stock/wine mixture to a saucepan and heat on medium high until reduced to your desired thickness. If you want the gravy even thicker, you can make a slurry with a little cornstarch or flour (a teaspoon) and water (1/4 cup), and add that to the gravy while it cooks.</p>
+            <li>Serve:</li>
+            <p>Serve with steamed rice, mashed potatoes, or Spanish rice.</p>
+        </ol>'),
+       (8, 'Kentucky Hot Brown', 2, 30, 'DINNER', 90,
+        '<ol>
+            <li>Preheat the oven, prepare two baking sheets:</li>
+            <p>Preheat the oven to 400°F. Line two rimmed baking sheets with heavy duty aluminum foil—one for the bacon and other to assemble the sandwiches, it should be large enough to set two slices of bread side by side.</p>
+            <li>Cook the bacon:</li>
+            <p>Lay the bacon slices on one of the baking sheets. Cook the bacon, until crispy and to your liking, rotating the pan halfway through cooking if necessary, and checking for doneness at about 12 minutes. Transfer bacon to a paper-towel lined plate to drain excess grease.</p>
+            <li>Toast the bread and assemble the sandwiches:</li>
+            <p>Toast 4 slices of bread in a toaster, toaster oven, or regular oven. On the remaining baking sheet place two slices of toast side by side in a single layer. Cut the other two slices of toast on a diagonal to form triangles and set those pieces aside. Cut four slices of tomato. Divide the turkey evenly between the slices of toast on the baking sheet. Top each stack of turkey with two slices of tomato. Season with salt and pepper.</p>
+            <li>Make the cheese sauce:</li>
+            <p>Set a small heavy-bottomed saucepan over medium heat. Add the butter. Once it melts, slowly whisk in the flour and continue to whisk until the mixture turns a shade darker and begins to smell slightly nutty, about 1 minute. This will allow the raw flour taste to cook out. Slowly pour in the milk and cream, whisking constantly, until the mixture is smooth and thick, about 3 minutes. When you first start pouring in the liquid, it will look ugly and grainy. Dont worry! It will calm down, come back together and smooth itself out once all of the liquid is whisked in.</p>
+            <li>Remove from heat and add the cheese:</li>
+            <p>Remove from heat and add the cheese: Remove the sauce from the heat and whisk in the cheese, salt, pepper, and nutmeg. Whisk to combine until the cheese melts. Taste and adjust seasonings as necessary, keeping in mind the saltiness of your turkey. Spoon half of the sauce over each sandwich.</p>
+            <li>Broil the sandwiches:</li>
+            <p>Set the oven rack about 5 inches from the broiler element. Preheat the broiler. Broil the sandwiches until the sauce is browned in spots and bubbling, 3 to 5 minutes.</p>
+            <li>Serve the sandwiches:</li>
+            <p>With a spatula, transfer each sandwich and two triangles of toast to a plate. Spoon the remaining sauce from the baking dish onto the plates. Crisscross 2 slices of bacon over top each sandwich and garnish with parsley. Serve while still hot.</p>
+        </ol>'
+        ),
+       (9, 'Easy Homemade Hummus', 2, 5, 'SNACKS', 77,
+        '<ol>
+            <li>Process tahini and olive oil:</li>
+            <p>In a food processor, combine the tahini and olive oil and pulse until smooth.</p>
+            <li>Add remaining ingredients, process until smooth:</li>
+            <p>Then add the garlic, garbanzo beans, lemon juice, 1/2 cup water and 1/2 teaspoon of salt. Process until smooth. The longer you process in the food processor, the smoother the hummus will be. Add more salt or lemon juice to taste.</p>
+            <li>Serve:</li>
+            <p>Spoon into serving dish, swirl a little olive oil over the top and sprinkle with garnishes—a little paprika, toasted pine nuts, or chopped fresh parsley. Serve with crackers, raw dip vegetables such as carrots or celery, or with toasted pita bread. To toast pita bread, cut the pita bread into triangles, brush with olive oil and toast for 10 minutes in a 375°F oven, turning them over half-way through the cooking.</p>
+        </ol>'
+        ),
+       (10, 'Mango Salsa', 1, 10, 'SNACKS', 123,
+        '<ol>
+            <li>Mix ingredients:</li>
+            <p>Put the diced mango, red onion, jalapeño and cilantro in a medium bowl. Toss with lime juice. If the salsa is too acidic for you, stir in some diced avocado.</p>
+            <li>Serve:</li>
+            <p>Serve with fish, steak, tacos, or tortilla chips!</p>
+        </ol>'
+        ),
+       (11, 'Brownie in a Mug', 1, 5, 'DESSERT', 91,
+        '<ol>
+            <li>Melt the butter, if using:</li>
+            <p>Put the butter in a small microwave-safe bowl or ramekin, and microwave at 50% power (power level 5 on most microwaves) for 30 seconds. If it’s not melted after that, continue to microwave in 10-seconds bursts until it is.</p>
+            <li>Combine the dry ingredients in a mug:</li>
+            <p>Place the flour, sugar, cocoa, salt (if using unsalted butter), and optional cinnamon in a microwave-safe ceramic mug. Stir with a fork until it resembles brown sand and there are no clumps.</p>
+            <li>Add the wet ingredients and stir:</li>
+            <p>Stir in the butter (or oil) with a fork until a paste forms. Then add the milk (or water or coffee) and vanilla, and stir with the same fork until smooth. The batter may look a little thin, but don’t worry—that’s how it’s supposed to be.</p>
+            <li>Cook in the microwave:</li>
+            <p>Microwave, uncovered, on high power for 1 minute. You may need to adjust the time for less or more powerful microwaves. If you don''t know the power level on your microwave, start with 1 minute and continue cooking in 10-second increments until the brownie is done. For a 1000-watt microwave 1 minute is good; for 1650-watt microwaves, we recommend 1 minute and 10 seconds. After cooking, the brownie should still look a tad moist, not dry. Some wet-looking spots are okay; those will set up as the brownie rests.</p>
+            <li>Rest 4 minutes:</li>
+            <p>Let the brownie rest for 4 minutes. The inside of the brownie is very hot and still cooking, even though it’s not in the microwave. It may be hard, but the wait is worth it! It gives the brownie a better flavor and texture.</p>
+            <li>Top with ice cream:</li>
+            <p>Serve with a scoop of vanilla ice cream or a small dab of cream (whipped or unwhipped).</p>
+        </ol>'
+        ),
+       (12, 'Rice Pudding', 4, 35, 'DESSERT', 126,
+        '<ol>
+            <li>Cook the rice in milk</li>
+            <p>In a medium-sized, heavy-bottomed saucepan, bring the milk, rice and salt to a boil over high heat. Reduce heat to low and simmer partially covered until the rice is tender, about 20-25 minutes. Stir frequently to prevent the rice from sticking to the bottom of the pan.</p>
+            <li>Mix egg and brown sugar, temper with rice mixture:</li>
+            <p>In a small mixing bowl, whisk together egg and brown sugar until well mixed. Add a half cup of the hot rice mixture to the egg mixture, a tablespoon at a time, vigorously whisking to incorporate.</p>
+            <li>Add tempered egg mixture back to rice mixture:</li>
+            <p>Add egg mixture back into the saucepan of rice and milk and stir, on low heat, for 5 to 10 minutes, until thickened, or about 160°F (71°C). Be careful not to have the mixture come to a boil at this point or it will curdle. Remove from heat and stir in the vanilla, raisins, and cinnamon.</p>
+            <li>Serve:</li>
+            <p>Serve warm or cold</p>
+        </ol>'
+        );
 
 INSERT INTO ingredient(id, quantity, measurement, name, recipe_id)
 VALUES (1, 1, 'TABLESPOON', 'extra-virgin olive oil', 1),
@@ -134,58 +275,3 @@ VALUES (1, 1, 'TABLESPOON', 'extra-virgin olive oil', 1),
        (120, 1, 'TEASPOON', 'vanilla extract', 12),
        (121, 0.25, 'TEASPOON', 'cinnamon', 12),
        (122, 0.3, 'CUP', '(40 grams) raisins', 12);
-
-INSERT INTO preparation_instruction(id, name, description, recipe_id)
-VALUES (1, 'Sauté the onion and garlic:', 'Heat the olive oil in a large skillet over medium. Add 3/4 of the sliced onion and sauté until nearly tender, about 5 minutes. Add the garlic and sauté to soften, 2 minutes.', 1),
-       (2, 'Blend the sauce:', 'Transfer the cooked onion and garlic to a blender along with the beans, including the bean liquid, chipotle, lime juice, cumin, salt, and 1/2 cup water. Blend until smooth and creamy. Taste and add more salt if needed, then blend again. ', 1),
-       (3, 'Heat the sauce:', 'Transfer the beans back to the large skillet set over low heat. Cook for 4 to 6 minutes at simmer. The sauce should be the texture of a thick soup. Add more water, if needed, to thin to the appropriate consistency.', 1),
-       (4, 'Assemble the dish:', 'Use a pair of tongs to heat a tortilla over a gas flame or in a dry skillet set over high heat until it begins to blister. Submerge the tortilla in the bean sauce, smothering it completely. Use a spatula to fold it in half and transfer to a dinner plate. Top with a tablespoon of cotija, a slice or 2 of avocado, and a tangle of raw sliced onions. Continue with remaining tortillas and bean sauce, figuring 2 enfrijoladas per plate.', 1),
-       (5, 'Serve:', 'Serve immediately with the salsa, cilantro, sour cream and any remaining bean sauce for guests to add as they please.', 1),
-       (6, 'Cook the onion and peppers:', 'In a large skillet over medium heat, heat the oil. Add the paprika, cumin, and pepper flakes and cook for 30 seconds to a minute to bloom the spices. Add the onion and cook, stirring occasionally, for 3 minutes. Add the garlic, red pepper, and yellow pepper and cook, stirring occasionally, for 15 minutes, or until the vegetables soften.', 2),
-       (7, 'Crush the tomatoes and simmer them with the peppers:', 'In a bowl, break up the tomatoes with your hands. Add them to the skillet with the salt and cook for 5 minutes. Taste and add more salt, if you prefer.', 2),
-       (8, 'Cook the eggs:', 'With the back of a spoon or a ladle, make 4 indentations in the sauce. Break an egg into a cup and carefully pour it into and indentation, being careful not to break the yolk. Repeat with the remaining eggs. (You can crack the egg directly into the sauce and skip the cup, but it’s easier to get a an errant egg shell or protect the dish from a bad egg if you use the cup method.) Sprinkle the feta and olives around the eggs. Cover the pan and simmer over medium heat for 8 minutes, or until the whites are set and the yolks are still soft. (If you like your eggs well done, cook for a minute or two longer.)', 2),
-       (9, 'To serve:', 'Garnish with cilantro leaves and a sprinkling of red pepper flakes. Bring to the table and serve from the pan.', 2),
-       (10, 'Preheat oven to 400F', '', 3),
-       (11, 'In a small bowl, whisk eggs and milk together', 'Set aside.', 3),
-       (12, 'Cook the onions and garlic:', 'Heat olive oil in a 10-inch oven-safe skillet or pan over medium heat. Add the turmeric and stir so that turmeric dissolves into the oil. Add diced onions and cook, stirring occasionally, until they start to soften, about 2 minutes. Add minced garlic and stir for 30 seconds.', 3),
-       (13, 'Cook the potatoes and other vegetables:', 'dd the potatoes and a generous pinch of salt and cook, stirring occasionally, until some of the slices start to brown, 5 to 6 minutes. Add the red pepper and cook until they start to soften, about 2 minutes. Add scallions and spinach leaves and cook until the leaves start to wilt, stirring occasionally.', 3),
-       (14, 'Pour egg mixture into the skillet', 'Reduce heat to medium-low. Cook until the eggs start to set on the bottom, about 2 to 3 minutes', 3),
-       (15, 'Place skillet in the oven and bake for 8 to 9 minutes, until the center is set', 'Remove skillet from oven with oven mitts. Let frittata cool for 5 minutes before serving. Cut into wedges and season with more salt and some ground pepper, if desired. Frittata will keep refrigerated for 5 days. Leftovers can be eaten chilled or briefly warmed in the microwave.', 3),
-       (16, 'Poach the chicken (skip if using already cooked chicken):', 'Bring a pot with 2 quarts of well salted water (1 tablespoon salt) to a boil. Add the chicken breast (cut into large chunks) and return the water to a simmer. Then turn off the heat, and cover the pot. Let the chicken sit for 15 minutes (time it) or more while you prepare everything else.', 4),
-       (17, 'Make the dressing:', 'Prepare the chicken salad dressing in a large bowl. Mix together the mayonnaise, preserves, and lemon juice. Taste for the proper balance of sweetness and acidity. The salad dressing should not be too sweet, nor too sour. Add more preserves or lemon juice until you have reached the balance you want. Add salt and pepper to taste.', 4),
-       (18, 'Mix in the chopped celery, bell pepper, olives, red onion, and apple', '', 4),
-       (19, 'Dice the chicken, mix with dressing and vegetables:', 'Remove the chicken from the poaching water and dice it. (Or dice already cooked chicken if that is what you are using for this salad.) Mix it in with the dressing and vegetables', 4),
-       (20, 'Add lettuce:', 'At this point you can make ahead. When ready to serve, fold in the sliced and chopped iceberg lettuce.', 4),
-       (21, 'Mix the ham salad:', 'Mix everything but the salt, pepper and cayenne in a large bowl. Taste and add cayenne, salt and black pepper to taste. Serve chilled.', 5),
-       (22, 'Serve:', 'Serve straight, or mixed in with macaroni, or in a sandwich in a hamburger bun, slider roll, Kaiser roll, regular bread, in a pita or as a wrap. Good with lemonade on a hot day.', 5),
-       (24, 'Mix:', 'In a medium bowl, mix all of the ingredients until combined.', 6),
-       (25, 'Serve:', 'Serve tuna salad on toast, either open faced, or in a regular sandwich with lettuce and tomatoes. For a low carb option, serve on sliced lettuce.', 6),
-       (26, 'Trim and salt the chicken:', 'Trim the chicken pieces of excess fat. Pat the chicken pieces dry with a paper towel. Sprinkle all sides with salt. Let the chicken pieces sit for 15 to 20 minutes to take the chill off.', 7),
-       (27, 'Preheat the oven to 400°F (205°C)', '', 7),
-       (28, 'Prep the chicken:', 'Pat the chicken pieces dry with a paper towel. Rub olive oil over the chicken pieces and on the bottom of the roasting pan. Sprinkle the chicken pieces all over with black pepper and a little more salt. Arrange the chicken pieces in the pan so that all the pieces are skin-side up, and the largest pieces (the breasts) are in the center of the pan. Dont crowd the pan; allow room in between the pieces.', 7),
-       (29, 'Bake the chicken:', 'Bake (uncovered) in the oven for 30 minutes at 400°F (205°C). This initial high heat will help brown the chicken. Then lower the heat to 350°F (175°C) and bake for an additional 10-30 minutes until the juices run clear (not pink) when poked with a sharp knife or the internal temperature of the chicken breasts is 165°F (74°C), and of the thighs is 170°F (77°C) when tested with a meat thermometer. If the chicken isnt browning well enough, place the chicken under the broiler for the last 5 minutes of cooking, until browned sufficiently.', 7),
-       (30, 'Let it rest:', 'Remove from oven and transfer the chicken to a serving dish. Tent with aluminum foil and let rest for 5 to 10 minutes before serving.', 7),
-       (31, 'Make gravy:', 'If you would like to make gravy with the drippings from the chicken, place the roasting pan with all its drippings on the stovetop and set the burner to medium heat. Use a metal spatula to scrape up the stuck drippings from the bottom of the pan. When the pan is hot, pour in some white wine or chicken stock to help loosen the drippings from the pan. Transfer the drippings and stock/wine mixture to a saucepan and heat on medium high until reduced to your desired thickness. If you want the gravy even thicker, you can make a slurry with a little cornstarch or flour (a teaspoon) and water (1/4 cup), and add that to the gravy while it cooks.', 7),
-       (32, 'Serve:', 'Serve with steamed rice, mashed potatoes, or Spanish rice.', 7),
-       (33, 'Preheat the oven, prepare two baking sheets:', 'Preheat the oven to 400°F. Line two rimmed baking sheets with heavy duty aluminum foil—one for the bacon and other to assemble the sandwiches, it should be large enough to set two slices of bread side by side.', 8),
-       (34, 'Cook the bacon:', 'Lay the bacon slices on one of the baking sheets. Cook the bacon, until crispy and to your liking, rotating the pan halfway through cooking if necessary, and checking for doneness at about 12 minutes. Transfer bacon to a paper-towel lined plate to drain excess grease.', 8),
-       (35, 'Toast the bread and assemble the sandwiches:', 'Toast 4 slices of bread in a toaster, toaster oven, or regular oven. On the remaining baking sheet place two slices of toast side by side in a single layer. Cut the other two slices of toast on a diagonal to form triangles and set those pieces aside. Cut four slices of tomato. Divide the turkey evenly between the slices of toast on the baking sheet. Top each stack of turkey with two slices of tomato. Season with salt and pepper.', 8),
-       (36, 'Make the cheese sauce:', 'Set a small heavy-bottomed saucepan over medium heat. Add the butter. Once it melts, slowly whisk in the flour and continue to whisk until the mixture turns a shade darker and begins to smell slightly nutty, about 1 minute. This will allow the raw flour taste to cook out. Slowly pour in the milk and cream, whisking constantly, until the mixture is smooth and thick, about 3 minutes. When you first start pouring in the liquid, it will look ugly and grainy. Dont worry! It will calm down, come back together and smooth itself out once all of the liquid is whisked in.', 8),
-       (37, 'Remove from heat and add the cheese:', 'Remove from heat and add the cheese: Remove the sauce from the heat and whisk in the cheese, salt, pepper, and nutmeg. Whisk to combine until the cheese melts. Taste and adjust seasonings as necessary, keeping in mind the saltiness of your turkey. Spoon half of the sauce over each sandwich.', 8),
-       (38, 'Broil the sandwiches:', 'Set the oven rack about 5 inches from the broiler element. Preheat the broiler. Broil the sandwiches until the sauce is browned in spots and bubbling, 3 to 5 minutes.', 8),
-       (39, 'Serve the sandwiches:', 'With a spatula, transfer each sandwich and two triangles of toast to a plate. Spoon the remaining sauce from the baking dish onto the plates. Crisscross 2 slices of bacon over top each sandwich and garnish with parsley. Serve while still hot.', 8),
-       (40, 'Process tahini and olive oil:', 'In a food processor, combine the tahini and olive oil and pulse until smooth.', 9),
-       (41, 'Add remaining ingredients, process until smooth:', 'Then add the garlic, garbanzo beans, lemon juice, 1/2 cup water and 1/2 teaspoon of salt. Process until smooth. The longer you process in the food processor, the smoother the hummus will be. Add more salt or lemon juice to taste.', 9),
-       (42, 'Serve:', 'Spoon into serving dish, swirl a little olive oil over the top and sprinkle with garnishes—a little paprika, toasted pine nuts, or chopped fresh parsley. Serve with crackers, raw dip vegetables such as carrots or celery, or with toasted pita bread. To toast pita bread, cut the pita bread into triangles, brush with olive oil and toast for 10 minutes in a 375°F oven, turning them over half-way through the cooking.', 9),
-       (43, 'Mix:', 'Put the diced mango, red onion, jalapeño and cilantro in a medium bowl. Toss with lime juice. If the salsa is too acidic for you, stir in some diced avocado.', 10),
-       (44, 'Serve:', 'Serve with fish, steak, tacos, or tortilla chips!', 10),
-       (45, 'Melt the butter, if using:', 'Put the butter in a small microwave-safe bowl or ramekin, and microwave at 50% power (power level 5 on most microwaves) for 30 seconds. If it’s not melted after that, continue to microwave in 10-seconds bursts until it is.', 11),
-       (46, 'Combine the dry ingredients in a mug:', 'Place the flour, sugar, cocoa, salt (if using unsalted butter), and optional cinnamon in a microwave-safe ceramic mug. Stir with a fork until it resembles brown sand and there are no clumps.', 11),
-       (47, 'Add the wet ingredients and stir:', 'Stir in the butter (or oil) with a fork until a paste forms. Then add the milk (or water or coffee) and vanilla, and stir with the same fork until smooth. The batter may look a little thin, but don’t worry—that’s how it’s supposed to be.', 11),
-       (48, 'Cook in the microwave:', 'Microwave, uncovered, on high power for 1 minute. You may need to adjust the time for less or more powerful microwaves. If you don''t know the power level on your microwave, start with 1 minute and continue cooking in 10-second increments until the brownie is done. For a 1000-watt microwave 1 minute is good; for 1650-watt microwaves, we recommend 1 minute and 10 seconds. After cooking, the brownie should still look a tad moist, not dry. Some wet-looking spots are okay; those will set up as the brownie rests.', 11),
-       (49, 'Rest 4 minutes:', 'Let the brownie rest for 4 minutes. The inside of the brownie is very hot and still cooking, even though it’s not in the microwave. It may be hard, but the wait is worth it! It gives the brownie a better flavor and texture.', 11),
-       (50, 'Top with ice cream:', 'Serve with a scoop of vanilla ice cream or a small dab of cream (whipped or unwhipped).', 11),
-       (51, 'Cook the rice in milk:', 'In a medium-sized, heavy-bottomed saucepan, bring the milk, rice and salt to a boil over high heat. Reduce heat to low and simmer partially covered until the rice is tender, about 20-25 minutes. Stir frequently to prevent the rice from sticking to the bottom of the pan.', 12),
-       (52, 'Mix egg and brown sugar, temper with rice mixture:', 'In a small mixing bowl, whisk together egg and brown sugar until well mixed. Add a half cup of the hot rice mixture to the egg mixture, a tablespoon at a time, vigorously whisking to incorporate.', 12),
-       (53, 'Add tempered egg mixture back to rice mixture:', 'Add egg mixture back into the saucepan of rice and milk and stir, on low heat, for 5 to 10 minutes, until thickened, or about 160°F (71°C). Be careful not to have the mixture come to a boil at this point or it will curdle. Remove from heat and stir in the vanilla, raisins, and cinnamon.', 12),
-       (54, 'Serve:', 'Serve warm or cold', 12);

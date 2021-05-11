@@ -47,7 +47,9 @@
                     <label for="inputLikesCounter">LIKES COUNTER</label>
                     <input type="number" th:field="*{likesCounter}" class="form-control" id="inputLikesCounter">
                 </div>
-                <h2>LIST OF INGREDIENTS:</h2>
+                <h2>
+                    LIST OF INGREDIENTS:
+                </h2>
                 <div class="form-group col-md-8">
                     <table class="table" id="ingredients">
                         <thead>
@@ -74,42 +76,26 @@
                                 <input type="text" class="form-control">
                             </td>
                             <td>
-                                <label onclick="removeIngredient(this)">Delete</label>
+                                <button type="button" class="btn btn-primary"
+                                        onclick="removeIngredient(this)">Delete</button>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="col-12">
-                        <input type="button" onclick="addIngredient()" value="ADD NEW"/>
+                        <button type="button" class="btn btn-primary"
+                                onclick="addIngredient(this)">ADD NEW</button>
                     </div>
                 </div>
-                <h2>LIST OF PREPARATION INSTRUCTIONS:</h2>
+                <h2>
+                PREPARATION INSTRUCTIONS:
+                </h2>
                 <div class="form-group col-md-8">
-                    <table class="table" id="preparationInstructions">
-                        <tbody>
-                        <tr>
-                            <td>
-                                <div class="form-group col-md-8">
-                                    <label for="inputPreparationInstructionName">NAME OF PREPARATION INSTRUCTION</label>
-                                    <input type="text" class="form-control" id="inputPreparationInstructionName">
-                                </div>
-                                <div class="form-group col-md-8">
-                                    <label for="inputPreparationInstructionDescription">DESCRIPTION OF PREPARATION INSTRUCTION</label>
-                                    <textarea class="form-control" id="inputPreparationInstructionDescription" rows="4" ></textarea>
-                                </div>
-                            </td>
-                            <td>
-                                <label onclick="removePreparationInstruction(this)">Delete</label>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="col-12">
-                        <input type="button" onclick="addPreparationInstruction()" value="ADD NEW"/>
-                    </div>
+                    <label for="inputPreparationInstructions"></label>
+                    <textarea class="form-control" th:field="*{preparationInstructions}" id="inputPreparationInstructions" rows="25" ></textarea>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary" id="submit">Modify</button>
+                    <button type="submit" class="btn btn-primary" id="submit">ADD RECIPE</button>
                 </div>
             </div>
         </form>

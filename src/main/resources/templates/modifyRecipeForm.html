@@ -70,17 +70,9 @@
                 <h2>
                     PREPARATION INSTRUCTIONS:
                 </h2>
-                <div th:each="instruction, stat : *{preparationInstructions}">
-                    <input type="hidden" th:field="*{preparationInstructions[__${stat.index}__].id}"/>
-                    <input type="hidden" th:field="*{preparationInstructions[__${stat.index}__].recipe.id}"/>
-                    <div class="form-group col-md-8">
-                        <label for="inputPreparationInstructionName">NAME OF PREPARATION INSTRUCTION</label>
-                        <input type="text" th:field="*{preparationInstructions[__${stat.index}__].name}" class="form-control" id="inputPreparationInstructionName">
-                    </div>
-                    <div class="form-group col-md-8">
-                        <label for="inputPreparationInstructionDescription">DESCRIPTION OF PREPARATION INSTRUCTION</label>
-                        <textarea class="form-control" th:field="*{preparationInstructions[__${stat.index}__].description}" id="inputPreparationInstructionDescription" rows="4" ></textarea>
-                    </div>
+                <div class="form-group col-md-8">
+                    <label for="inputPreparationInstructions">PREPARATION INSTRUCTIONS</label>
+                    <textarea class="form-control" th:field="*{preparationInstructions}" id="inputPreparationInstructions" rows="25" ></textarea>
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary" id="submit">Modify</button>

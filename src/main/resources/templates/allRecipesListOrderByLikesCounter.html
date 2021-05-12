@@ -27,7 +27,12 @@
                             </a>
                         </div>
                         <div class="box-content"></div>
-                        <i class="glyphicon glyphicon-time"></i> <time th:text="|Preparation time: ${recipe.preparationTime} minutes|"></time>
+                        <i class="glyphicon glyphicon-time"></i>
+                        <time
+                                th:text="|Preparation time:
+                                ${recipe.preparationTime.getValue()}
+                                ${recipe.preparationTime.getTimeUnit()}|">
+                        </time>
                         <i th:each="serve : ${#numbers.sequence(1, recipe.getServes())}" class="glyphicon glyphicon-user"></i>
                         <i>Serves</i>
                         <div>
@@ -38,12 +43,15 @@
                                 <i th:text="|Likes: ${recipe.getLikesCounter()}|">Recipe likes number</i>
                                 <div>
                                     <form th:action="|/recipe/${recipe.id}/updateLikesCounter/like|" method="post">
-                                        <button type="submit">
+                                        <button type="submit" style="border: none; background-color: white">
                                             <a type="submit" class="fa fa-thumbs-up"  style="color: black"></a>
                                         </button>
                                     </form>
-                                    <a class="glyphicon glyphicon-floppy-remove" style="color: black"
-                                       th:href="|/recipe/${recipe.id}/delete|"></a>
+                                    <form th:action="|/recipe/${recipe.id}/delete|" method="post">
+                                        <button type="submit" style="border: none; background-color: white">
+                                            <a class="glyphicon glyphicon-floppy-remove" style="color: black"></a>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

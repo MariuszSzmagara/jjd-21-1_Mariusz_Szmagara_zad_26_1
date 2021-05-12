@@ -16,15 +16,29 @@
     <section layout:fragment="content">
         <h2 th:text="|MODIFY RECIPE - ${recipeToModify.title.toUpperCase()}|"></h2>
         <form action="#" th:action="|/recipe/${recipeToModify.id}/update|" method="post" th:object="${recipeToModify}">
-            <input type="hidden" th:field="*{id}"/>
             <div class="d-flex flex-column">
                 <div class="form-group col-md-8">
                     <label for="inputName">TITLE OF RECIPE</label>
                     <input type="text" th:field="*{title}" class="form-control" id="inputName">
                 </div>
+                <h2>
+                    PREPARATION TIME:
+                </h2>
                 <div class="form-group col-md-8">
-                    <label for="inputPreparationTime">PREPARATION TIME</label>
-                    <input type="number" th:field="*{preparationTime}" class="form-control" id="inputPreparationTime">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="inputValue">VALUE</label>
+                            <input type="number" th:field="*{preparationTime.value}" class="form-control" step="1" id="inputValue">
+                        </div>
+                        <div class="col-sm">
+                            <label for="inputTimeUnit">TIME UNIT</label>
+                            <select th:field="*{preparationTime.timeUnit}" class="form-control" id="inputTimeUnit">
+                                <option th:value="${TimeUnit}"
+                                        th:each="TimeUnit : ${T(pl.javastart.cookbook.recipe.model.TimeUnit).values()}"
+                                        th:text="${TimeUnit.name()}">TIME UNIT</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group col-md-8">
                     <label for="inputServes">SERVES</label>

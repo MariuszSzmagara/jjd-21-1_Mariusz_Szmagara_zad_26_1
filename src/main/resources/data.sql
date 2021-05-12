@@ -1,5 +1,5 @@
 INSERT INTO recipe(id, title, serves, preparation_time, category, likes_counter, preparation_instructions)
-VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAST', 30,
+VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, '30 MINUTES', 'BREAKFAST', 30,
         '<ol>
             <li>Sauté the onion and garlic:</li>
             <p> Heat the olive oil in a large skillet over medium. Add 3/4 of the sliced onion and sauté until nearly tender, about 5 minutes. Add the garlic and sauté to soften, 2 minutes.</p>
@@ -13,7 +13,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>Serve immediately with the salsa, cilantro, sour cream and any remaining bean sauce for guests to add as they please.</p>
         </ol>'
                 ),
-       (2, 'Shakshuka with Feta, Olives, and Peppers', 4, 50, 'BREAKFAST', 69,
+       (2, 'Shakshuka with Feta, Olives, and Peppers', 4, '50 MINUTES' , 'BREAKFAST', 69,
         '<ol>
             <li>Cook the onion and peppers:</li>
             <p>In a large skillet over medium heat, heat the oil. Add the paprika, cumin, and pepper flakes and cook for 30 seconds to a minute to bloom the spices. Add the onion and cook, stirring occasionally, for 3 minutes. Add the garlic, red pepper, and yellow pepper and cook, stirring occasionally, for 15 minutes, or until the vegetables soften.</p>
@@ -25,7 +25,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>Garnish with cilantro leaves and a sprinkling of red pepper flakes. Bring to the table and serve from the pan.</p>
         </ol>'
         ),
-       (3, 'Frittata with Potatoes, Red Peppers, and Spinach', 6, 40, 'BREAKFAST', 48,
+       (3, 'Frittata with Potatoes, Red Peppers, and Spinach', 6, '40 MINUTES', 'BREAKFAST', 48,
         '<ol>
             <li>Preheat oven to 400F</li>
             <p> Heat the olive oil in a large skillet over medium. Add 3/4 of the sliced onion and sauté until nearly tender, about 5 minutes. Add the garlic and sauté to soften, 2 minutes.</p>
@@ -41,7 +41,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>Remove skillet from oven with oven mitts. Let frittata cool for 5 minutes before serving. Cut into wedges and season with more salt and some ground pepper, if desired. Frittata will keep refrigerated for 5 days. Leftovers can be eaten chilled or briefly warmed in the microwave.</p>
         </ol>'
         ),
-       (4, 'Classic Chicken Salad', 4, 30, 'LUNCH', 52,
+       (4, 'Classic Chicken Salad', 4, '30 MINUTES', 'LUNCH', 52,
         '<ol>
             <li>Poach the chicken (skip if using already cooked chicken):</li>
             <p> Bring a pot with 2 quarts of well salted water (1 tablespoon salt) to a boil. Add the chicken breast (cut into large chunks) and return the water to a simmer. Then turn off the heat, and cover the pot. Let the chicken sit for 15 minutes (time it) or more while you prepare everything else.</p>
@@ -55,7 +55,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>At this point you can make ahead. When ready to serve, fold in the sliced and chopped iceberg lettuce.</p>
         </ol>'
         ),
-       (5, 'Ham Salad', 4, 10, 'LUNCH', 23,
+       (5, 'Ham Salad', 4, '10 MINUTES', 'LUNCH', 23,
         '<ol>
             <li>Mix the ham salad:</li>
             <p> Mix everything with the salt, pepper and cayenne in a large bowl. Taste and add cayenne, salt and black pepper to taste. Serve chilled.</p>
@@ -63,7 +63,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>Serve straight, or mixed in with macaroni, or in a sandwich in a hamburger bun, slider roll, Kaiser roll, regular bread, in a pita or as a wrap. Good with lemonade on a hot day.</p>
         </ol>'
         ),
-       (6, 'Best Ever Tuna Salad Sandwich', 1, 5, 'LUNCH', 77,
+       (6, 'Best Ever Tuna Salad Sandwich', 1, '5 MINUTES', 'LUNCH', 77,
         '<ol>
             <li>Mix:</li>
             <p>In a medium bowl, mix all of the ingredients until combined.</p>
@@ -71,7 +71,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>Serve tuna salad on toast, either open faced, or in a regular sandwich with lettuce and tomatoes. For a low carb option, serve on sliced lettuce.</p>
         </ol>'
         ),
-       (7, 'Classic Baked Chicken', 4, 65, 'DINNER', 100,
+       (7, 'Classic Baked Chicken', 4, '65 MINUTES', 'DINNER', 100,
         '<ol>
             <li>Trim and salt the chicken:</li>
             <p>Trim the chicken pieces of excess fat. Pat the chicken pieces dry with a paper towel. Sprinkle all sides with salt. Let the chicken pieces sit for 15 to 20 minutes to take the chill off.</p>
@@ -88,7 +88,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <li>Serve:</li>
             <p>Serve with steamed rice, mashed potatoes, or Spanish rice.</p>
         </ol>'),
-       (8, 'Kentucky Hot Brown', 2, 30, 'DINNER', 90,
+       (8, 'Kentucky Hot Brown', 2, '30 MINUTES', 'DINNER', 90,
         '<ol>
             <li>Preheat the oven, prepare two baking sheets:</li>
             <p>Preheat the oven to 400°F. Line two rimmed baking sheets with heavy duty aluminum foil—one for the bacon and other to assemble the sandwiches, it should be large enough to set two slices of bread side by side.</p>
@@ -106,7 +106,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>With a spatula, transfer each sandwich and two triangles of toast to a plate. Spoon the remaining sauce from the baking dish onto the plates. Crisscross 2 slices of bacon over top each sandwich and garnish with parsley. Serve while still hot.</p>
         </ol>'
         ),
-       (9, 'Easy Homemade Hummus', 2, 5, 'SNACKS', 77,
+       (9, 'Easy Homemade Hummus', 2, '5 MINUTES', 'SNACKS', 77,
         '<ol>
             <li>Process tahini and olive oil:</li>
             <p>In a food processor, combine the tahini and olive oil and pulse until smooth.</p>
@@ -116,7 +116,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>Spoon into serving dish, swirl a little olive oil over the top and sprinkle with garnishes—a little paprika, toasted pine nuts, or chopped fresh parsley. Serve with crackers, raw dip vegetables such as carrots or celery, or with toasted pita bread. To toast pita bread, cut the pita bread into triangles, brush with olive oil and toast for 10 minutes in a 375°F oven, turning them over half-way through the cooking.</p>
         </ol>'
         ),
-       (10, 'Mango Salsa', 1, 10, 'SNACKS', 123,
+       (10, 'Mango Salsa', 1, '10 MINUTES', 'SNACKS', 123,
         '<ol>
             <li>Mix ingredients:</li>
             <p>Put the diced mango, red onion, jalapeño and cilantro in a medium bowl. Toss with lime juice. If the salsa is too acidic for you, stir in some diced avocado.</p>
@@ -124,7 +124,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>Serve with fish, steak, tacos, or tortilla chips!</p>
         </ol>'
         ),
-       (11, 'Brownie in a Mug', 1, 5, 'DESSERT', 91,
+       (11, 'Brownie in a Mug', 1, '5 MINUTES', 'DESSERT', 91,
         '<ol>
             <li>Melt the butter, if using:</li>
             <p>Put the butter in a small microwave-safe bowl or ramekin, and microwave at 50% power (power level 5 on most microwaves) for 30 seconds. If it’s not melted after that, continue to microwave in 10-seconds bursts until it is.</p>
@@ -140,7 +140,7 @@ VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, 30, 'BREAKFAS
             <p>Serve with a scoop of vanilla ice cream or a small dab of cream (whipped or unwhipped).</p>
         </ol>'
         ),
-       (12, 'Rice Pudding', 4, 35, 'DESSERT', 126,
+       (12, 'Rice Pudding', 4, '35 MINUTES', 'DESSERT', 126,
         '<ol>
             <li>Cook the rice in milk</li>
             <p>In a medium-sized, heavy-bottomed saucepan, bring the milk, rice and salt to a boil over high heat. Reduce heat to low and simmer partially covered until the rice is tender, about 20-25 minutes. Stir frequently to prevent the rice from sticking to the bottom of the pan.</p>

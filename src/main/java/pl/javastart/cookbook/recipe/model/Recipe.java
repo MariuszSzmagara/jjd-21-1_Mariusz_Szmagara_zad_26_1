@@ -1,5 +1,7 @@
 package pl.javastart.cookbook.recipe.model;
 
+import pl.javastart.cookbook.ingredient.converter.PreparationTimeConverter;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,14 +18,15 @@ public class Recipe {
     private Category category;
     private int serves;
     private int likesCounter;
-    private int preparationTime;
+    @Convert(converter = PreparationTimeConverter.class)
+    private PreparationTime preparationTime;
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Ingredient> ingredients;
 
     public Recipe() {
     }
 
-    public Recipe(String title, Category category, int serves, int likesCounter, int preparationTime,
+    public Recipe(String title, Category category, int serves, int likesCounter, PreparationTime preparationTime,
                   List<Ingredient> ingredients, String preparationInstructions) {
         this.title = title;
         this.category = category;
@@ -74,11 +77,11 @@ public class Recipe {
         this.likesCounter = likesCounter;
     }
 
-    public int getPreparationTime() {
+    public PreparationTime getPreparationTime() {
         return preparationTime;
     }
 
-    public void setPreparationTime(int preparationTime) {
+    public void setPreparationTime(PreparationTime preparationTime) {
         this.preparationTime = preparationTime;
     }
 

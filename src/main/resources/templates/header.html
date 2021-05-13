@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-dark " th:fragment="header">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <i class="glyphicon glyphicon-book"></i>
+            <strong>
+                COOKBOOK
+            </strong>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategory" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        RECIPES
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
+                        <li><a class="dropdown-item"
+                               th:href="|/recipes/${category}|"
+                               th:each="category : ${T(pl.javastart.cookbook.recipe.model.Category).values()}"
+                               th:text="${category.name()}">CATEGORY
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/">ALL</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" th:href="@{/recipes/orderByLikes}">RECIPES BY LIKES</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/newRecipe}">ADD NEW RECIPE</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

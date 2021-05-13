@@ -1,4 +1,4 @@
-package pl.javastart.cookbook.recipe.model;
+package pl.javastart.cookbook.preparationtime.model;
 
 import java.io.Serializable;
 

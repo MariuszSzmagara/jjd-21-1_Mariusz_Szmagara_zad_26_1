@@ -1,7 +1,7 @@
-package pl.javastart.cookbook.ingredient.converter;
+package pl.javastart.cookbook.preparationtime.converter;
 
-import pl.javastart.cookbook.recipe.model.PreparationTime;
-import pl.javastart.cookbook.recipe.model.TimeUnit;
+import pl.javastart.cookbook.preparationtime.model.PreparationTime;
+import pl.javastart.cookbook.preparationtime.model.TimeUnit;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Convert;

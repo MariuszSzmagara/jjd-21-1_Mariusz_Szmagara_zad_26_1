@@ -1,6 +1,8 @@
 package pl.javastart.cookbook.recipe.model;
 
-import pl.javastart.cookbook.ingredient.converter.PreparationTimeConverter;
+import pl.javastart.cookbook.ingredient.model.Ingredient;
+import pl.javastart.cookbook.preparationtime.model.PreparationTime;
+import pl.javastart.cookbook.preparationtime.converter.PreparationTimeConverter;
 
 import javax.persistence.*;
 import java.util.List;

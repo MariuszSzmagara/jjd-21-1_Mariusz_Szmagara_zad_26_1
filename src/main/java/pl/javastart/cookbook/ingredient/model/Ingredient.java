@@ -1,4 +1,6 @@
-package pl.javastart.cookbook.recipe.model;
+package pl.javastart.cookbook.ingredient.model;
+
+import pl.javastart.cookbook.recipe.model.Recipe;
 
 import javax.persistence.*;
 

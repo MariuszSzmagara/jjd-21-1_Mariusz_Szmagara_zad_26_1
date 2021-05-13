@@ -40,7 +40,7 @@
                             <label for="inputTimeUnit">TIME UNIT</label>
                             <select th:field="*{preparationTime.timeUnit}" class="form-control" id="inputTimeUnit">
                                 <option th:value="${TimeUnit}"
-                                        th:each="TimeUnit : ${T(pl.javastart.cookbook.recipe.model.TimeUnit).values()}"
+                                        th:each="TimeUnit : ${T(pl.javastart.cookbook.preparationtime.model.TimeUnit).values()}"
                                         th:text="${TimeUnit.name()}">TIME UNIT</option>
                             </select>
                         </div>
@@ -83,7 +83,7 @@
                             <td>
                                 <select class="form-control">
                                     <option th:value="${measurement}"
-                                            th:each="measurement : ${T(pl.javastart.cookbook.recipe.model.Measurement).values()}"
+                                            th:each="measurement : ${T(pl.javastart.cookbook.ingredient.model.Measurement).values()}"
                                             th:text="${measurement.name()}">MEASUREMENT</option>
                                 </select>
                             </td>

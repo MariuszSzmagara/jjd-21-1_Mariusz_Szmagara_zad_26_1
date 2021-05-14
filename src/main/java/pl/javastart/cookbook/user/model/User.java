@@ -16,15 +16,19 @@ public class User {
     private String firstName;
     private String lastName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    LocalDate dateOfBirth;
+    private LocalDate dateOfBirth;
+    private String emailAddress;
+    private boolean signedUpForNewsletter;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, LocalDate dateOfBirth) {
+    public User(String firstName, String lastName, LocalDate dateOfBirth, String emailAddress, boolean signedUpForNewsletter) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        this.emailAddress = emailAddress;
+        this.signedUpForNewsletter = signedUpForNewsletter;
     }
 
     public Long getId() {
@@ -57,5 +61,21 @@ public class User {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public boolean isSignedUpForNewsletter() {
+        return signedUpForNewsletter;
+    }
+
+    public void setSignedUpForNewsletter(boolean signedUpForNewsletter) {
+        this.signedUpForNewsletter = signedUpForNewsletter;
     }
 }

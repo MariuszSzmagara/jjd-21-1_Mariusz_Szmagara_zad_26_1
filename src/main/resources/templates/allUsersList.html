@@ -33,6 +33,12 @@
                         <label for="inputDateOfBirth">DATE OF BIRTH</label>
                     </th>
                     <th scope="col">
+                        <label for="inputEmailAddress">EMAIL ADDRESS</label>
+                    </th>
+                    <th scope="col">
+                        <label for="inputSignedUpForNewsletter">SIGNED UP FOR NEWSLETTER</label>
+                    </th>
+                    <th scope="col">
                         <label for="inputAction">ACTION</label>
                     </th>
                 </tr>
@@ -50,6 +56,12 @@
                     </td>
                     <td>
                         <input type="date" th:field="*{dateOfBirth}" class="form-control" id="inputDateOfBirth" placeholder="Choose Date of birth">
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{emailAddress}" class="form-control" id="inputEmailAddress" placeholder="Enter email address">
+                    </td>
+                    <td>
+                        <input type="checkbox" th:checked="*{signedUpForNewsletter}" class="form-check-input" id="inputSignedUpForNewsletter">
                     </td>
                     <td>
                         <button type="reset" class="btn btn-primary" id="inputAction">RESET</button>
@@ -70,6 +82,8 @@
                     <th scope="col">FIRS NAME</th>
                     <th scope="col">LAST NAME</th>
                     <th scope="col">DATE OF BIRTH</th>
+                    <th scope="col">EMAIL ADDRESS</th>
+                    <th scope="col">SIGNED UP FOR NEWSLETTER</th>
                     <th scope="col">ACTION</th>
                 </tr>
                 </thead>
@@ -86,6 +100,12 @@
                     </td>
                     <td>
                         <a type="text" th:text="${user.dateOfBirth}" class="form-control"></a>
+                    </td>
+                    <td>
+                        <a type="text" th:text="${user.emailAddress}" class="form-control"></a>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:checked="${user.signedUpForNewsletter}" disabled class="form-check-input">
                     </td>
                     <td>
                         <form th:action="|/user/${user.id}/delete|" method="post">

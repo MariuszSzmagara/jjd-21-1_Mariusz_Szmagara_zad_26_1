@@ -3,37 +3,62 @@ package pl.javastart.cookbook.user.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.javastart.cookbook.user.model.User;
-import pl.javastart.cookbook.user.repository.UserRepository;
+import pl.javastart.cookbook.user.service.UserService;
 
 @Controller
 public class UserController {
+    private final UserService userService;
 
-    private UserRepository userRepository;
-
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
-    @GetMapping("/user/all")
-    public String getAllUsers(Model model) {
-        model.addAttribute("allUsersList", userRepository.findAll());
-        model.addAttribute("newUser", new User());
-        return "allUsersList";
+    @GetMapping("/signIn")
+    public String signIn() {
+        return "signInForm";
     }
 
-    @PostMapping("/user/addNewUser")
-    public String addNewUser(User user) {
-        userRepository.save(user);
-        return "redirect:/user/all";
+    @GetMapping("/signIn-error")
+    public String signInError(Model model) {
+        model.addAttribute("signInError", true);
+        return "signInForm";
     }
 
-    @PostMapping("/user/{id}/delete")
-    public String deleteUser(@PathVariable Long id) {
-        userRepository.deleteUserById(id);
-        return "redirect:/user/all";
+    @GetMapping("/signUp")
+    public String signUp(Model model) {
+        model.addAttribute("user", new User());
+        return "signUpForm";
     }
 
+    @PostMapping("/signUp")
+    public String signUp(User user) {
+        userService.signUpUser(user);
+        return "redirect:/signIn";
+    }
+
+    @GetMapping("/password/reset")
+    public String getResetPasswordLinkForm() {
+        return "resetPasswordLinkForm";
+    }
+
+    @PostMapping("/password/reset")
+    public String sendResetPasswordLink(@RequestParam String emailAddress) {
+        userService.sendPasswordResetLink(emailAddress);
+        return "resetPasswordLinkSuccessful";
+    }
+
+    @GetMapping("password/reset/link")
+    public String getResetPasswordForm(@RequestParam String passwordResetKey, Model model) {
+        model.addAttribute("passwordResetKey", passwordResetKey);
+        return "resetPasswordForm";
+    }
+
+    @PostMapping("/password/reset/link")
+    public String resetPassword(@RequestParam String passwordResetKey, @RequestParam String newPassword) {
+        userService.resetUserPassword(passwordResetKey, newPassword);
+        return "resetPasswordSuccessful";
+    }
 }

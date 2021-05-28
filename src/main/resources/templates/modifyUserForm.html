@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout.html}">
 <head>
-    <title th:text="${recipeToModify.title}"></title>
+    <title>MODIFY AN ACCOUNT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link th:href="@{/style/main.css}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,82 +14,74 @@
 <body>
 <div>
     <section layout:fragment="content">
-        <h2 th:text="|MODIFY RECIPE - ${recipeToModify.title.toUpperCase()}|"></h2>
-        <form action="#" th:action="|/recipe/${recipeToModify.id}/update|" method="post" th:object="${recipeToModify}">
-            <div class="d-flex flex-column">
-                <div class="form-group col-md-8">
-                    <label for="inputName">TITLE OF RECIPE</label>
-                    <input type="text" th:field="*{title}" class="form-control" id="inputName">
-                </div>
-                <h2>
-                    PREPARATION TIME:
-                </h2>
+        <h2 style="text-align: center">
+            <strong>
+                MODIFY AN ACCOUNT
+            </strong>
+        </h2>
+        <form action="#" th:action="@{/signUp}" method="post" th:object="${userToModify}">
+            <div class="d-flex flex-column justify-content-center align-items-center">
                 <div class="form-group col-md-8">
                     <div class="row">
                         <div class="col-sm">
-                            <label for="inputValue">VALUE</label>
-                            <input type="number" th:field="*{preparationTime.value}" class="form-control" step="1" id="inputValue">
+                            <label for="inputFirstName">FIRST NAME</label>
+                            <input type="text" th:field="*{firstName}" class="form-control" id="inputFirstName" placeholder="Enter first name">
                         </div>
                         <div class="col-sm">
-                            <label for="inputTimeUnit">TIME UNIT</label>
-                            <select th:field="*{preparationTime.timeUnit}" class="form-control" id="inputTimeUnit">
-                                <option th:value="${TimeUnit}"
-                                        th:each="TimeUnit : ${T(pl.javastart.cookbook.preparationtime.model.TimeUnit).values()}"
-                                        th:text="${TimeUnit.name()}">TIME UNIT</option>
-                            </select>
+                            <label for="inputLastName">LAST NAME</label>
+                            <input type="text"  th:field="*{lastName}" class="form-control" id="inputLastName" placeholder="Enter last name">
                         </div>
                     </div>
                 </div>
                 <div class="form-group col-md-8">
-                    <label for="inputServes">SERVES</label>
-                    <input type="number" th:fi th:field="*{serves}" class="form-control" id="inputServes">
-                </div>
-                <div class="form-group col-md-8">
-                    <label for="inputCategory">SELECT THE CATEGORY OF RECIPE</label>
-                    <select class="form-control" th:field="*{category}" id="inputCategory">
-                        <option th:value="${category}"
-                                th:each="category : ${T(pl.javastart.cookbook.recipe.model.Category).values()}"
-                                th:text="${category.name()}">CATEGORY</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-8">
-                    <label for="inputLikesCounter">LIKES COUNTER</label>
-                    <input type="number" th:field="*{likesCounter}" class="form-control" id="inputLikesCounter">
-                </div>
-                <h2>
-                    INGREDIENTS:
-                </h2>
-                <div class="form-group col-md-8" th:each="ingredient, stat : *{ingredients}">
-                    <input type="hidden" th:field="*{ingredients[__${stat.index}__].id}"/>
-                    <input type="hidden" th:field="*{ingredients[__${stat.index}__].recipe.id}"/>
                     <div class="row">
                         <div class="col-sm">
-                            <label for="inputQuantity">QUANTITY</label>
-                            <input type="number" th:field="*{ingredients[__${stat.index}__].quantity}" class="form-control" step="1" id="inputQuantity">
+                            <label for="inputDateOfBirth">DATE OF BIRTH</label>
+                            <input type="date"  th:field="*{dateOfBirth}" class="form-control" id="inputDateOfBirth" placeholder="Choose date of birth">
                         </div>
                         <div class="col-sm">
-                            <label for="inputMeasurement">MEASUREMENT</label>
-                            <select th:field="*{ingredients[__${stat.index}__].measurement}" class="form-control" id="inputMeasurement">
-                                <option th:value="${measurement}"
-                                        th:each="measurement : ${T(pl.javastart.cookbook.ingredient.model.Measurement).values()}"
-                                        th:text="${measurement.name()}">MEASUREMENT</option>
-                            </select>
-                        </div>
-                        <div class="col-sm">
-                            <label for="inputIngredient">INGREDIENT</label>
-                            <input type="text" th:field="*{ingredients[__${stat.index}__].name}" class="form-control" id="inputIngredient">
+                            <label for="inputEmailAddress">EMAIL ADDRESS</label>
+                            <p th:errors="*{emailAddress}">Email errors</p>
+                            <input type="text"  th:field="*{emailAddress}" class="form-control" id="inputEmailAddress" placeholder="Enter email address">
                         </div>
                     </div>
                 </div>
-                <h2>
-                    PREPARATION INSTRUCTIONS:
-                </h2>
                 <div class="form-group col-md-8">
-                    <label for="inputPreparationInstructions">PREPARATION INSTRUCTIONS</label>
-                    <textarea class="form-control" th:field="*{preparationInstructions}" id="inputPreparationInstructions" rows="25" ></textarea>
+                   <div class="row">
+                       <label class="form-check-label" for="inputSignedUpForNewsletter">SIGNED UP FOR NEWSLETTER</label>
+                       <input type="checkbox"  th:field="*{signedUpForNewsletter}" class="form-check-input" id="inputSignedUpForNewsletter">
+                   </div>
                 </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary" id="submit">Modify</button>
+                <div class="form-group col-md-8">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="inputUserName">USER NAME</label>
+                            <input type="text"  th:field="*{userName}" class="form-control" id="inputUserName" placeholder="Enter user name">
+                        </div>
+                        <div class="col-sm">
+                            <label for="inputPassword">PASSWORD</label>
+                            <input type="text"  th:field="*{password} "class="form-control" id="inputPassword" placeholder="Enter password">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-8">
+                    <label class="form-check-label" for="inputAuthority">AUTHORITY</label>
+                    <div class="row"  th:each="role, stat : *{roles}">
+                        <input type="hidden" th:field="*{roles[__${stat.index}__].id}"/>
+                        <input type="hidden" th:field="*{roles[__${stat.index}__].user.id}"/>
+                        <select class="form-control" th:field="*{roles[__${stat.index}__].authority}" id="inputAuthority">
+                            <option th:value="${authority}"
+                                    th:each="authority : ${T(pl.javastart.cookbook.user.model.Authority).values()}"
+                                    th:text="${authority.name()}">AUTHORITY</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group  col-md-8">
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary btn-block" id="submit">
+                            MODIFY
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>

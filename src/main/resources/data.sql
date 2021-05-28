@@ -1,14 +1,26 @@
-INSERT INTO user(id, first_name, last_name, date_of_birth, email_address, signed_up_for_newsletter)
-VALUES (1, 'Adam', 'Nowak', '1986-12-05', 'adam.nowak@wp.pl', true),
-       (2, 'Marzena', 'Bis', '2000-05-29', 'marzenia.bis@gmail.com', true),
-       (3, 'Judyta', 'Tasior', '1957-04-11', 'judytatasior@gmail.com', false),
-       (4, 'Radek', 'Sienkiewicz', '1987-07-09', 'radek_sienkiewicz@wp.pl', true),
-       (5, 'Marta', 'Nowakowicz', '1999-08-16', 'marta1999@wp.pl', false),
-       (6, 'Grzegorz', 'Dec', '1977-02-17', 'grzegorz.dec@gmail.com', false),
-       (7, 'Mariusz', 'Szmagara', '1986-03-04', 'mariusz.szmagara@gmail.com', true),
-       (8, 'Mateusz', 'Kozak', '1995-05-12', 'mateusz.kozak@wp.pl', false),
-       (9, 'Ola', 'Zenek', '1988-10-08', 'ola_zenek@wp.pl', false),
-       (10, 'Adam', 'Witko', '1997-05-11', 'adam.witko@gmail.com', false);
+INSERT INTO user(id, first_name, last_name, date_of_birth, email_address, signed_up_for_newsletter, user_name, password)
+VALUES (1, 'Adam', 'Nowak', '1986-12-05', 'adam.nowak@byom.de', true, 'adam', '{noop}adam1'),
+       (2, 'Marzena', 'Bis', '2000-05-29', 'marzenia.bis@byom.de', true, 'marzena', '{noop}marzena1'),
+       (3, 'Judyta', 'Tasior', '1957-04-11', 'judytatasior@byom.de', false, 'judyta', '{noop}judyta1'),
+       (4, 'Radek', 'Sienkiewicz', '1987-07-09', 'radek_sienkiewicz@byom.de', true, 'radek', '{noop}radek1'),
+       (5, 'Marta', 'Nowakowicz', '1999-08-16', 'marta1999@byom.de', false, 'marta', '{noop}marta1'),
+       (6, 'Grzegorz', 'Dec', '1977-02-17', 'grzegorz.dec@byom.de', false, 'grzegorz', '{noop}grzegorz1'),
+       (7, 'Mariusz', 'Szmagara', '1986-03-04', 'mariusz.szmagara@byom.de', true, 'mariusz', '{noop}mariusz1'),
+       (8, 'Mateusz', 'Kozak', '1995-05-12', 'mateusz.kozak@byom.de', false, 'mateusz', '{noop}mateusz'),
+       (9, 'Ola', 'Zenek', '1988-10-08', 'ola_zenek@byom.de', false, 'ola', '{noop}ola1'),
+       (10, 'Adam', 'Witko', '1997-05-11', 'adam.witko@byom.de', false, 'adam123', '{noop}adam2');
+INSERT INTO role(id, authority, user_id)
+VALUES (1, 'ROLE_USER', 1),
+       (2, 'ROLE_ADMIN', 2),
+       (3, 'ROLE_USER', 3),
+       (4, 'ROLE_USER', 4),
+       (5, 'ROLE_USER', 5),
+       (6, 'ROLE_USER', 6),
+       (7, 'ROLE_USER', 7),
+       (8, 'ROLE_USER', 8),
+       (9, 'ROLE_USER', 9),
+       (10, 'ROLE_USER', 10),
+       (11, 'ROLE_ADMIN', 10);
 INSERT INTO recipe(id, title, serves, preparation_time, category, likes_counter, preparation_instructions)
 VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, '30 MINUTES', 'BREAKFAST', 30,
         '<ol>

@@ -18,6 +18,8 @@ public class MailService {
     private final JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
     private String domainOwnerEmailAddress;
+    @Value("${reset.key.link.url}")
+    private String link;
 
     public MailService(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
@@ -31,7 +33,7 @@ public class MailService {
             helper.setTo(emailAddress);
             helper.setFrom(domainOwnerEmailAddress);
             helper.setSubject("Reset your password");
-            String resetPasswordLink = "<a href=\"http://localhost:8080/password/reset/link?passwordResetKey=" + randomPasswordResetKey + "\">Reset password</a>";
+            String resetPasswordLink = "<a href=" + link + randomPasswordResetKey + ">Reset password</a>";
             String messageContent = "<p>No need to worry, you can reset your password by clicking the link. " + resetPasswordLink + "</p>";
             helper.setText(messageContent, true);
             javaMailSender.send(mimeMessage);

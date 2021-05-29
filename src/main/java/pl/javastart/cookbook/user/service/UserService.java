@@ -72,4 +72,10 @@ public class UserService {
             userRepository.save(user);
         });
     }
+
+    public void updateUserAccount(User userToModify) {
+        userToModify.setPassword(passwordEncoder.encode(userToModify.getPassword()));
+        userRepository.save(userToModify);
+    }
+
 }

@@ -24,7 +24,7 @@ public class MailService {
     }
 
     public void sendPasswordResetLink(String emailAddress, String randomPasswordResetKey) {
-        logger.debug("Sending maila to {} ", emailAddress);
+        logger.debug("Sending mail to {} ", emailAddress);
         try {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "utf-8");

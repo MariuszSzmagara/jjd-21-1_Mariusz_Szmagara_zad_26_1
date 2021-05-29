@@ -3,9 +3,6 @@ package pl.javastart.cookbook.user.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
-import pl.javastart.cookbook.user.model.Role;
-import pl.javastart.cookbook.user.model.User;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,5 +58,21 @@ public class MyUserDetails implements UserDetails {
 
     public String getFullName() {
         return user.getFullName();
+    }
+
+    public Long getId() {
+        return user.getId();
+    }
+
+    public void setFirstName(String firstName) {
+        this.user.setFirstName(firstName);
+    }
+
+    public void setLastName(String lastName) {
+        this.user.setFirstName(lastName);
+    }
+
+    public void setPassword(String password) {
+        this.user.setFirstName(password);
     }
 }

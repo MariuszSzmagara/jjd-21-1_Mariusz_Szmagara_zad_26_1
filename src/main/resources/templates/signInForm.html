@@ -20,6 +20,8 @@
           <h2 style="text-align: center">
             PLEASE SIGN IN
           </h2>
+          <p th:text="${messageSignUpCompletedSuccessfully}" style="color: limegreen">MESSAGE SUCCESSFULLY SIGN UP</p>
+          <p th:text="${messageUpdateAccountCompletedSuccessfully}" style="color: limegreen">MESSAGE SUCCESSFULLY UPDATED ACCOUNT DETAILS</p>
           <p th:if="${signInError}" class="error" style="color: red">WRONG USER NAME OR PASSWORD! PLEASE TRY AGAIN</p>
         </div>
         <div class="form-group col-md-3">

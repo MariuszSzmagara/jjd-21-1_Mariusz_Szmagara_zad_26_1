@@ -32,7 +32,7 @@ public class MyUserDetailsService implements UserDetailsService {
 //            Collection<SimpleGrantedAuthority> roles;
 //            return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), collect);
 //        } else {
-//            throw new UsernameNotFoundException("Ther is no record wirth given userName: " + userName);
+//            throw new UsernameNotFoundException("There is no record wirth given userName: " + userName);
 //        }
 
         Optional<User> optionalByUserName = userRepository.findByUserName(userName);
@@ -40,7 +40,7 @@ public class MyUserDetailsService implements UserDetailsService {
             User user = optionalByUserName.get();
             return new MyUserDetails(user);
         } else {
-            throw new UsernameNotFoundException("Ther is no record wirth given userName: " + userName);
+            throw new UsernameNotFoundException("There is no record wirth given userName: " + userName);
         }
     }
 

@@ -1,12 +1,17 @@
 package pl.javastart.cookbook.user.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pl.javastart.cookbook.user.model.MyUserDetails;
 import pl.javastart.cookbook.user.model.User;
 import pl.javastart.cookbook.user.service.UserService;
+
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -34,8 +39,9 @@ public class UserController {
     }
 
     @PostMapping("/signUp")
-    public String signUp(User user) {
+    public String signUp(User user, RedirectAttributes redirectAttributes) {
         userService.signUpUser(user);
+        redirectAttributes.addFlashAttribute("messageSignUpCompletedSuccessfully", "Your account has ben created successfully! Please SIGN IN");
         return "redirect:/signIn";
     }
 
@@ -50,7 +56,7 @@ public class UserController {
         return "resetPasswordLinkSuccessful";
     }
 
-    @GetMapping("password/reset/link")
+    @GetMapping("/password/reset/link")
     public String getResetPasswordForm(@RequestParam String passwordResetKey, Model model) {
         model.addAttribute("passwordResetKey", passwordResetKey);
         return "resetPasswordForm";
@@ -60,5 +66,25 @@ public class UserController {
     public String resetPassword(@RequestParam String passwordResetKey, @RequestParam String newPassword) {
         userService.resetUserPassword(passwordResetKey, newPassword);
         return "resetPasswordSuccessful";
+    }
+
+    @GetMapping("user/account/modify")
+    public String getUserAccountModifyForm(@AuthenticationPrincipal MyUserDetails loggedInUser, Model model) {
+        Long id = loggedInUser.getId();
+        Optional<User> optionalUserById = userService.findUserById(id);
+        if (optionalUserById.isPresent()) {
+            User userToModify = optionalUserById.get();
+            model.addAttribute("userToModify", userToModify);
+            return "userAccountModifyForm";
+        } else {
+            return "error";
+        }
+    }
+
+    @PostMapping("/user/account/update")
+    public String updateUserAccount(User userToUpdate, RedirectAttributes redirectAttributes) {
+        userService.updateUserAccount(userToUpdate);
+        redirectAttributes.addFlashAttribute("messageUpdateAccountCompletedSuccessfully", "Your account details have ben updated successfully! Please SIGN IN");
+        return "redirect:/signIn";
     }
 }

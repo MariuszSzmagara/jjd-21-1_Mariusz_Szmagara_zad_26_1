@@ -44,7 +44,7 @@
                         </li>
                         <li>
                             <a class="dropdown-item" th:href="@{/recipes/orderByLikes}">
-                            RECIPES BY LIKES
+                                RECIPES BY LIKES
                             </a>
                         </li>
                     </ul>
@@ -61,13 +61,6 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li th:if="${#authorization.expr('isAuthenticated()')}">
-                    <a th:href="@{/signOut}" style="color: white">
-                        <span class="glyphicon glyphicon-log-out" style="color: white">
-                        </span>
-                        SIGN OUT
-                    </a>
-                </li>
                 <li th:unless="${#authorization.expr('isAuthenticated()')}">
                     <a th:href="@{/signIn}" style="color: white">
                         <span class="glyphicon glyphicon-log-in" style="color: white">
@@ -75,11 +68,24 @@
                         SIGN IN
                     </a>
                 </li>
-                <li th:if="${#authorization.expr('isAuthenticated()')}">
-                    <a style="color: white">
+                <li th:if="${#authorization.expr('isAuthenticated()')}" class="nav-item dropdown">
+                    <a style="color: white" class="nav-link dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user" style="color: white" th:text="| ${#authentication.getPrincipal().getFullName()}|">
                         </span>
                     </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a th:href="|/user/account/modify|" style="color: black">
+                        <span class=" glyphicon glyphicon-cog" style="color: black">
+                        </span>
+                            ACCOUNT SETTINGS
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a th:href="@{/signOut}" style="color: black">
+                        <span class="glyphicon glyphicon-log-out" style="color: black">
+                        </span>
+                            SIGN OUT
+                        </a>
+                    </div>
                 </li>
                 <li th:unless="${#authorization.expr('isAuthenticated()')}">
                     <a th:href="@{/signUp}" style="color: white">

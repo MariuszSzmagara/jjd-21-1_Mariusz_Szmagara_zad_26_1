@@ -2,11 +2,9 @@ package pl.javastart.cookbook.user.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -19,16 +17,24 @@ public class User {
     private LocalDate dateOfBirth;
     private String emailAddress;
     private boolean signedUpForNewsletter;
+    private String userName;
+    private String password;
+    private String passwordResetKey;
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, LocalDate dateOfBirth, String emailAddress, boolean signedUpForNewsletter) {
+    public User(String firstName, String lastName, LocalDate dateOfBirth, String emailAddress, boolean signedUpForNewsletter, String userName, String password, String passwordResetKey) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.emailAddress = emailAddress;
         this.signedUpForNewsletter = signedUpForNewsletter;
+        this.userName = userName;
+        this.password = password;
+        this.passwordResetKey = passwordResetKey;
     }
 
     public Long getId() {
@@ -77,5 +83,41 @@ public class User {
 
     public void setSignedUpForNewsletter(boolean signedUpForNewsletter) {
         this.signedUpForNewsletter = signedUpForNewsletter;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPasswordResetKey() {
+        return passwordResetKey;
+    }
+
+    public void setPasswordResetKey(String passwordResetKey) {
+        this.passwordResetKey = passwordResetKey;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 }

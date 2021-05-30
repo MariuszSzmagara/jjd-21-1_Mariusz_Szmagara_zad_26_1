@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.javastart.cookbook.recipe.model.Category;
 import pl.javastart.cookbook.recipe.model.Recipe;
-import pl.javastart.cookbook.recipe.repository.RecipeRepository;
+import pl.javastart.cookbook.recipe.service.RecipeService;
 
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class RecipeController {
-    private final RecipeRepository recipeRepository;
+    private final RecipeService recipeService;
 
-    public RecipeController(RecipeRepository recipeRepository) {
-        this.recipeRepository = recipeRepository;
+    public RecipeController(RecipeService recipeService) {
+        this.recipeService = recipeService;
     }
 
     @GetMapping("/")
     public String getHome(Model model) {
-        List<Recipe> allRecipesList = recipeRepository.findAll();
+        List<Recipe> allRecipesList = recipeService.findAll();
         model.addAttribute("allRecipesList", allRecipesList);
         return "home";
     }
@@ -35,13 +35,13 @@ public class RecipeController {
 
     @PostMapping("/addNewRecipe")
     public String addNewRecipe(Recipe newRecipe) {
-        recipeRepository.save(newRecipe);
+        recipeService.addNewRecipe(newRecipe);
         return "redirect:/";
     }
 
     @GetMapping("/recipe/{id}/display")
     public String showRecipe(@PathVariable Long id, Model model) {
-        Optional<Recipe> recipeById = recipeRepository.findById(id);
+        Optional<Recipe> recipeById = recipeService.findById(id);
         if (recipeById.isPresent()) {
             Recipe recipeToDisplay = recipeById.get();
             model.addAttribute("recipeToDisplay", recipeToDisplay);
@@ -53,7 +53,7 @@ public class RecipeController {
 
     @GetMapping("/recipe/{id}/modify")
     public String modifyRecipe(@PathVariable Long id, Model model) {
-        Optional<Recipe> recipeById = recipeRepository.findById(id);
+        Optional<Recipe> recipeById = recipeService.findById(id);
         if (recipeById.isPresent()) {
             Recipe recipeToModify = recipeById.get();
             model.addAttribute("recipeToModify", recipeToModify);
@@ -65,32 +65,32 @@ public class RecipeController {
 
     @PostMapping("/recipe/{id}/update")
     public String updateWholeRecipeById(Recipe recipeToUpdate) {
-        recipeRepository.save(recipeToUpdate);
+        recipeService.update(recipeToUpdate);
         return "redirect:/";
     }
 
     @PostMapping("/recipe/{id}/updateLikesCounter/like")
     public String updateRecipeLikesCounterById(@PathVariable Long id) {
-        recipeRepository.updateRecipeLikesCounterById(id, 1);
+        recipeService.updateRecipeLikesCounterById(id, 1);
         return "redirect:/";
     }
 
     @PostMapping("/recipe/{id}/delete")
     public String deleteRecipeById(@PathVariable Long id) {
-        recipeRepository.deleteRecipeById(id);
+        recipeService.deleteRecipeById(id);
         return "redirect:/";
     }
 
     @GetMapping("/recipes/{category}")
     public String getRecipesListByCategory(@PathVariable Category category, Model model) {
-        List<Recipe> recipesListByCategory = recipeRepository.findByCategory(category);
+        List<Recipe> recipesListByCategory = recipeService.findByCategory(category);
         model.addAttribute("recipesListByCategory", recipesListByCategory);
         return "category";
     }
 
     @GetMapping("/recipes/orderByLikes")
     public String getAllRecipesListOrderedByLikes(Model model) {
-        List<Recipe> allRecipesListOrderByLikesCounter = recipeRepository.findAllByOrderByLikesCounterDesc();
+        List<Recipe> allRecipesListOrderByLikesCounter = recipeService.findAllByOrderByLikesCounterDesc();
         model.addAttribute("allRecipesListOrderByLikesCounter", allRecipesListOrderByLikesCounter);
         return "allRecipesListOrderByLikesCounter";
     }

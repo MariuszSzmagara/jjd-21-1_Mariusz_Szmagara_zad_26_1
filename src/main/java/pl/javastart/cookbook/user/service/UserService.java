@@ -5,6 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.javastart.cookbook.mail.service.MailService;
+import pl.javastart.cookbook.user.dto.UserAccountDetailsToModifyDto;
 import pl.javastart.cookbook.user.model.Authority;
 import pl.javastart.cookbook.user.model.Role;
 import pl.javastart.cookbook.user.model.User;
@@ -78,4 +79,9 @@ public class UserService {
         userRepository.save(userToModify);
     }
 
+
+    public void updateUserAccountDetails(UserAccountDetailsToModifyDto userAccountDetailsToModify) {
+        userAccountDetailsToModify.setPassword(passwordEncoder.encode(userAccountDetailsToModify.getPassword()));
+        userRepository.updateUserAccountDetails(userAccountDetailsToModify);
+    }
 }

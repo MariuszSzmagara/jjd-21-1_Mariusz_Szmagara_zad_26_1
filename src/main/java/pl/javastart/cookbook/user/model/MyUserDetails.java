@@ -60,10 +60,6 @@ public class MyUserDetails implements UserDetails {
         return user.getFullName();
     }
 
-    public Long getId() {
-        return user.getId();
-    }
-
     public void setFirstName(String firstName) {
         this.user.setFirstName(firstName);
     }
@@ -74,5 +70,17 @@ public class MyUserDetails implements UserDetails {
 
     public void setPassword(String password) {
         this.user.setFirstName(password);
+    }
+
+    public Long getId() {
+        return user.getId();
+    }
+
+    public String getFirstName() {
+        return user.getFirstName();
+    }
+
+    public String getLastName() {
+        return user.getLastName();
     }
 }

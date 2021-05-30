@@ -19,23 +19,20 @@
         CHANGE YOUR ACCOUNT DETAILS
       </strong>
     </h2>
-    <form action="#" th:action="@{/user/account/update}" method="post" th:object="${userToModify}">
-      <input type="hidden" th:field="*{id}" class="form-control" id>
-      <input type="hidden" th:field="*{dateOfBirth}" class="form-control" id="inputDateOfBirth" placeholder="Choose date of birth">
-      <input type="hidden" th:field="*{signedUpForNewsletter}" class="form-check-input" id="inputSignedUpForNewsletter">
-      <input type="hidden" th:field="*{userName}" class="form-control" id="inputUserName" placeholder="Enter user name">
+    <form action="#" th:action="@{/user/account/update}" method="post" th:object="${userAccountDetailsToModify}">
+      <input type="hidden" name="id" th:value="${#authentication.getPrincipal().getId()}" class="form-control" id>
       <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="form-group col-md-5">
           <label for="inputFirstName">FIRST NAME</label>
-          <input type="text" th:field="*{firstName}" class="form-control" id="inputFirstName" placeholder="Enter first name">
+          <input type="text" name="firstName" th:value="${#authentication.getPrincipal().getFirstName}" class="form-control" id="inputFirstName" placeholder="Enter first name">
         </div>
         <div class="form-group col-md-5">
           <label for="inputLastName">LAST NAME</label>
-          <input type="text"  th:field="*{lastName}" class="form-control" id="inputLastName" placeholder="Enter last name">
+          <input type="text" name="lastName" th:value="${#authentication.getPrincipal().getLastName}" class="form-control" id="inputLastName" placeholder="Enter last name">
         </div>
         <div class="form-group col-md-5">
           <label for="inputPassword">PASSWORD</label>
-          <input type="text" th:field="*{password}" class="form-control" id="inputPassword" placeholder="Enter password">
+          <input type="password" name="password" th:value="${#authentication.getPrincipal().getPassword()}" class="form-control" id="inputPassword" placeholder="Enter password">
         </div>
         <div class="form-group  col-md-5">
           <button type="submit" class="btn btn-primary btn-block" id="submit">

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pl.javastart.cookbook.user.dto.UserAccountDetailsToModifyDto;
 import pl.javastart.cookbook.user.model.MyUserDetails;
 import pl.javastart.cookbook.user.model.User;
 import pl.javastart.cookbook.user.service.UserService;
@@ -69,21 +70,14 @@ public class UserController {
     }
 
     @GetMapping("user/account/modify")
-    public String getUserAccountModifyForm(@AuthenticationPrincipal MyUserDetails loggedInUser, Model model) {
-        Long id = loggedInUser.getId();
-        Optional<User> optionalUserById = userService.findUserById(id);
-        if (optionalUserById.isPresent()) {
-            User userToModify = optionalUserById.get();
-            model.addAttribute("userToModify", userToModify);
-            return "userAccountModifyForm";
-        } else {
-            return "error";
-        }
+    public String getUserAccountModifyForm(Model model) {
+        model.addAttribute("userAccountDetailsToModify", new UserAccountDetailsToModifyDto());
+        return "userAccountModifyForm";
     }
 
     @PostMapping("/user/account/update")
-    public String updateUserAccount(User userToUpdate, RedirectAttributes redirectAttributes) {
-        userService.updateUserAccount(userToUpdate);
+    public String updateUserAccount(UserAccountDetailsToModifyDto userAccountDetailsToModify, RedirectAttributes redirectAttributes) {
+        userService.updateUserAccountDetails(userAccountDetailsToModify);
         redirectAttributes.addFlashAttribute("messageUpdateAccountCompletedSuccessfully", "Your account details have ben updated successfully! Please SIGN IN");
         return "redirect:/signIn";
     }

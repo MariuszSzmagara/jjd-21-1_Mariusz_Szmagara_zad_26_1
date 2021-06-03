@@ -1,14 +1,14 @@
-INSERT INTO user(id, first_name, last_name, date_of_birth, email_address, signed_up_for_newsletter, user_name, password)
-VALUES (1, 'Adam', 'Nowak', '1986-12-05', 'adam.nowak@byom.de', true, 'adam', '{noop}adam1'),
-       (2, 'Marzena', 'Bis', '2000-05-29', 'marzenia.bis@byom.de', true, 'marzena', '{noop}marzena1'),
-       (3, 'Judyta', 'Tasior', '1957-04-11', 'judytatasior@byom.de', false, 'judyta', '{noop}judyta1'),
-       (4, 'Radek', 'Sienkiewicz', '1987-07-09', 'radek_sienkiewicz@byom.de', true, 'radek', '{noop}radek1'),
-       (5, 'Marta', 'Nowakowicz', '1999-08-16', 'marta1999@byom.de', false, 'marta', '{noop}marta1'),
-       (6, 'Grzegorz', 'Dec', '1977-02-17', 'grzegorz.dec@byom.de', false, 'grzegorz', '{noop}grzegorz1'),
-       (7, 'Mariusz', 'Szmagara', '1986-03-04', 'mariusz.szmagara@byom.de', true, 'mariusz', '{noop}mariusz1'),
-       (8, 'Mateusz', 'Kozak', '1995-05-12', 'mateusz.kozak@byom.de', false, 'mateusz', '{noop}mateusz'),
-       (9, 'Ola', 'Zenek', '1988-10-08', 'ola_zenek@byom.de', false, 'ola', '{noop}ola1'),
-       (10, 'Adam', 'Witko', '1997-05-11', 'adam.witko@byom.de', false, 'adam123', '{noop}adam2');
+INSERT INTO user(id, first_name, last_name, date_of_birth, email_address, signed_up_for_newsletter, user_name, password, agreed_to_terms_and_conditions)
+VALUES (1, 'Adam', 'Nowak', '1986-12-05', 'adam.nowak@byom.de', true, 'adam', '{noop}adam1', true),
+       (2, 'Marzena', 'Bis', '2000-05-29', 'marzenia.bis@byom.de', true, 'marzena', '{noop}marzena1', true),
+       (3, 'Judyta', 'Tasior', '1957-04-11', 'judytatasior@byom.de', false, 'judyta', '{noop}judyta1', true),
+       (4, 'Radek', 'Sienkiewicz', '1987-07-09', 'radek_sienkiewicz@byom.de', true, 'radek', '{noop}radek1', true),
+       (5, 'Marta', 'Nowakowicz', '1999-08-16', 'marta1999@byom.de', false, 'marta', '{noop}marta1', true),
+       (6, 'Grzegorz', 'Dec', '1977-02-17', 'grzegorz.dec@byom.de', false, 'grzegorz', '{noop}grzegorz1', true),
+       (7, 'Mariusz', 'Szmagara', '1986-03-04', 'mariusz.szmagara@byom.de', true, 'mariusz', '{noop}mariusz1', true),
+       (8, 'Mateusz', 'Kozak', '1995-05-12', 'mateusz.kozak@byom.de', false, 'mateusz', '{noop}mateusz', true),
+       (9, 'Ola', 'Zenek', '1988-10-08', 'ola_zenek@byom.de', false, 'ola', '{noop}ola1', true),
+       (10, 'Adam', 'Witko', '1997-05-11', 'adam.witko@byom.de', false, 'adam123', '{noop}adam2', true);
 INSERT INTO role(id, authority, user_id)
 VALUES (1, 'ROLE_USER', 1),
        (2, 'ROLE_ADMIN', 2),
@@ -21,6 +21,17 @@ VALUES (1, 'ROLE_USER', 1),
        (9, 'ROLE_USER', 9),
        (10, 'ROLE_USER', 10),
        (11, 'ROLE_ADMIN', 10);
+INSERT INTO address(id, street_flat_and_house_number, postal_code, city, user_id)
+VALUES (1, 'Muzealna 129', '50-035', 'Wrocław', 1),
+       (2, 'Sudecka 20', '20-867', 'Lublin', 2),
+       (3, 'Załęska Hałda 69', '40-812', 'Katowice', 3),
+       (4, 'Popradzka 84', '04-979', 'Warszawa', 4),
+       (5, 'Rycerska 64', '93-368', 'Łódź', 5),
+       (6, 'Na Skały 86', '35-321', 'Rzeszów', 6),
+       (7, 'Trocinowa 57', '04-927', 'Warszawa', 7),
+       (8, 'Pl. Żołnierza Polskiego 2', '70-551', 'Szczecin', 8),
+       (9, 'Żeromskiego Stefana 15', '90-625', 'Łódź', 9),
+       (10, 'Mjra Sucharskiego Henryka 55', '71-075', 'Szczecin', 10);
 INSERT INTO recipe(id, title, serves, preparation_time, category, likes_counter, preparation_instructions)
 VALUES (1, 'Enfrijoladas with Black Beans, Avocado and Cotija', 4, '30 MINUTES', 'BREAKFAST', 30,
         '<ol>

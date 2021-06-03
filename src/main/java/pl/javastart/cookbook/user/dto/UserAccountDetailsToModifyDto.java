@@ -1,7 +1,11 @@
 package pl.javastart.cookbook.user.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 public class UserAccountDetailsToModifyDto {
     private Long id;
+    @NotBlank
     private String firstName;
     private String lastName;
     private String password;

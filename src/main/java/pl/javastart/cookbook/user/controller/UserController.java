@@ -1,18 +1,18 @@
 package pl.javastart.cookbook.user.controller;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pl.javastart.cookbook.user.dto.UserAccountDetailsToModifyDto;
-import pl.javastart.cookbook.user.model.MyUserDetails;
-import pl.javastart.cookbook.user.model.User;
+import pl.javastart.cookbook.user.dto.AccountDetailsToModifyFormDto;
+import pl.javastart.cookbook.user.dto.SignUpFormDto;
 import pl.javastart.cookbook.user.service.UserService;
 
-import java.util.Optional;
+import javax.validation.Valid;
 
 @Controller
 public class UserController {
@@ -35,15 +35,29 @@ public class UserController {
 
     @GetMapping("/signUp")
     public String signUp(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("newUser", new SignUpFormDto());
         return "signUpForm";
     }
 
     @PostMapping("/signUp")
-    public String signUp(User user, RedirectAttributes redirectAttributes) {
-        userService.signUpUser(user);
-        redirectAttributes.addFlashAttribute("messageSignUpCompletedSuccessfully", "Your account has ben created successfully! Please SIGN IN");
-        return "redirect:/signIn";
+    public String signUp(@Valid @ModelAttribute("newUser") SignUpFormDto userDto,
+                         BindingResult bindingResult,
+                         Model model,
+                         RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("newUser", userDto);
+            return "signUpForm";
+        } else {
+            userService.signUpUser(userDto);
+            redirectAttributes.addFlashAttribute("messageSignUpCompletedSuccessfully",
+                    "Your account has ben created successfully! Please SIGN IN");
+            return "redirect:/signIn";
+        }
+    }
+
+    @GetMapping("/termsAndConditionsAgreement")
+    public String getTermsAndConditionsAgreement() {
+        return "termsAndConditionsAgreement";
     }
 
     @GetMapping("/password/reset")
@@ -71,14 +85,23 @@ public class UserController {
 
     @GetMapping("user/account/modify")
     public String getUserAccountModifyForm(Model model) {
-        model.addAttribute("userAccountDetailsToModify", new UserAccountDetailsToModifyDto());
+        model.addAttribute("userAccountDetailsToModify", new AccountDetailsToModifyFormDto());
         return "userAccountModifyForm";
     }
 
     @PostMapping("/user/account/update")
-    public String updateUserAccount(UserAccountDetailsToModifyDto userAccountDetailsToModify, RedirectAttributes redirectAttributes) {
-        userService.updateUserAccountDetails(userAccountDetailsToModify);
-        redirectAttributes.addFlashAttribute("messageUpdateAccountCompletedSuccessfully", "Your account details have ben updated successfully! Please SIGN IN");
-        return "redirect:/signIn";
+    public String updateUserAccount(@Valid AccountDetailsToModifyFormDto userAccountDetailsToModify,
+                                    BindingResult bindingResult,
+                                    Model model,
+                                    RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("userAccountDetailsToModify", userAccountDetailsToModify);
+            return "userAccountModifyForm";
+        } else {
+            userService.updateUserAccountDetails(userAccountDetailsToModify);
+            redirectAttributes.addFlashAttribute("messageUpdateAccountCompletedSuccessfully",
+                    "Your account details have ben updated successfully! Please SIGN IN");
+            return "redirect:/signIn";
+        }
     }
 }

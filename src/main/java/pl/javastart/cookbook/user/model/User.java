@@ -1,6 +1,7 @@
 package pl.javastart.cookbook.user.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import pl.javastart.cookbook.user.address.model.Address;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -20,13 +21,18 @@ public class User {
     private String userName;
     private String password;
     private String passwordResetKey;
+    private boolean agreedToTermsAndConditions;
     @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private Set<Role> roles;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Address address;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, LocalDate dateOfBirth, String emailAddress, boolean signedUpForNewsletter, String userName, String password, String passwordResetKey) {
+    public User(String firstName, String lastName, LocalDate dateOfBirth,
+                String emailAddress, boolean signedUpForNewsletter, String userName,
+                String password, String passwordResetKey, boolean agreedToTermsAndConditions) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -35,6 +41,7 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.passwordResetKey = passwordResetKey;
+        this.agreedToTermsAndConditions = agreedToTermsAndConditions;
     }
 
     public Long getId() {
@@ -109,6 +116,14 @@ public class User {
         this.passwordResetKey = passwordResetKey;
     }
 
+    public boolean isAgreedToTermsAndConditions() {
+        return agreedToTermsAndConditions;
+    }
+
+    public void setAgreedToTermsAndConditions(boolean agreedToTermsAndConditions) {
+        this.agreedToTermsAndConditions = agreedToTermsAndConditions;
+    }
+
     public Set<Role> getRoles() {
         return roles;
     }
@@ -119,5 +134,13 @@ public class User {
 
     public String getFullName() {
         return firstName + " " + lastName;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

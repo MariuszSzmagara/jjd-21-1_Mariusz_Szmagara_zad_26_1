@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import pl.javastart.cookbook.user.dto.UserAccountDetailsToModifyDto;
+import pl.javastart.cookbook.user.dto.AccountDetailsToModifyFormDto;
 import pl.javastart.cookbook.user.model.User;
 
 import javax.transaction.Transactional;
@@ -29,6 +29,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("UPDATE User user SET user.firstName = :#{#userAccountDetailsToModify.firstName}, " +
             "user.lastName = :#{#userAccountDetailsToModify.lastName}, " +
             "user.password = :#{#userAccountDetailsToModify.password} WHERE user.id = :#{#userAccountDetailsToModify.id}")
-    void updateUserAccountDetails(@Param("userAccountDetailsToModify") UserAccountDetailsToModifyDto userAccountDetailsToModify);
+    void updateUserAccountDetails(@Param("userAccountDetailsToModify") AccountDetailsToModifyFormDto userAccountDetailsToModify);
 
 }

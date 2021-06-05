@@ -1,6 +1,5 @@
 package pl.javastart.cookbook.user.controller;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,13 +8,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pl.javastart.cookbook.user.dto.UserAccountDetailsToModifyDto;
-import pl.javastart.cookbook.user.model.MyUserDetails;
-import pl.javastart.cookbook.user.model.User;
+import pl.javastart.cookbook.user.dto.AccountDetailsToModifyFormDto;
+import pl.javastart.cookbook.user.dto.SignUpFormDto;
 import pl.javastart.cookbook.user.service.UserService;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -38,20 +35,20 @@ public class UserController {
 
     @GetMapping("/signUp")
     public String signUp(Model model) {
-        model.addAttribute("newUser", new User());
+        model.addAttribute("newUser", new SignUpFormDto());
         return "signUpForm";
     }
 
     @PostMapping("/signUp")
-    public String signUp(@Valid @ModelAttribute("newUser") User user,
+    public String signUp(@Valid @ModelAttribute("newUser") SignUpFormDto userDto,
                          BindingResult bindingResult,
                          Model model,
                          RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("newUser", user);
+            model.addAttribute("newUser", userDto);
             return "signUpForm";
         } else {
-            userService.signUpUser(user);
+            userService.signUpUser(userDto);
             redirectAttributes.addFlashAttribute("messageSignUpCompletedSuccessfully",
                     "Your account has ben created successfully! Please SIGN IN");
             return "redirect:/signIn";
@@ -88,12 +85,12 @@ public class UserController {
 
     @GetMapping("user/account/modify")
     public String getUserAccountModifyForm(Model model) {
-        model.addAttribute("userAccountDetailsToModify", new UserAccountDetailsToModifyDto());
+        model.addAttribute("userAccountDetailsToModify", new AccountDetailsToModifyFormDto());
         return "userAccountModifyForm";
     }
 
     @PostMapping("/user/account/update")
-    public String updateUserAccount(@Valid UserAccountDetailsToModifyDto userAccountDetailsToModify,
+    public String updateUserAccount(@Valid AccountDetailsToModifyFormDto userAccountDetailsToModify,
                                     BindingResult bindingResult,
                                     Model model,
                                     RedirectAttributes redirectAttributes) {

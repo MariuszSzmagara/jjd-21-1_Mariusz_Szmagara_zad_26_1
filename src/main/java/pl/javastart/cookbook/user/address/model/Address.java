@@ -1,23 +1,17 @@
 package pl.javastart.cookbook.user.address.model;
 
 import pl.javastart.cookbook.user.model.User;
-import pl.javastart.cookbook.validator.PostalCode;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
+
 
 @Entity
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty(message = "{pl.javastart.cookbook.user.address.model.Address.streetFlatAndHouseNumber.NotEmpty.message}")
     private String streetFlatAndHouseNumber;
-    @NotEmpty(message = "{pl.javastart.cookbook.user.address.model.Address.postalCode.NotEmpty.message}")
-    @PostalCode(message = "{pl.javastart.cookbook.user.address.model.Address.postalCode.PostalCode.message}")
     private String postalCode;
-    @NotEmpty(message = "{pl.javastart.cookbook.user.address.model.Address.city.NotEmpty.message}")
     private String city;
     @OneToOne
     private User user;

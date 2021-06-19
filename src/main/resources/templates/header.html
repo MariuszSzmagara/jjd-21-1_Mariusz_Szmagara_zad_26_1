@@ -54,6 +54,11 @@
                         ADD NEW RECIPE
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/weather/defaultCityName}">
+                        WEATHER
+                    </a>
+                </li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
                     <a class="nav-link active" aria-current="page" th:href="@{/admin/panel}">
                         ADMIN PANEL

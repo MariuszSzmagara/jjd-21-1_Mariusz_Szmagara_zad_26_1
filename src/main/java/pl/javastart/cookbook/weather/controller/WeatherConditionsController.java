@@ -1,5 +1,6 @@
 package pl.javastart.cookbook.weather.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,21 +13,22 @@ import pl.javastart.cookbook.weather.service.WeatherService;
 @Controller
 public class WeatherConditionsController {
     private final WeatherService weatherService;
+    @Value("${open.weather.map.defaultCityName}")
+    private String defaultCityName;
 
     public WeatherConditionsController(WeatherService weatherService) {
         this.weatherService = weatherService;
     }
 
-    @GetMapping("/weather/default")
+    @GetMapping("/weather/defaultCityName")
     public String getCurrentAndForecastWeatherDataForDefaultCityName(Model model) {
-        String defaultCityName = "Kraków";
         OpenWeatherMapOneCallDto currentAndForecastSevenDaysWeatherData = weatherService.getWeatherConditions(defaultCityName);
         model.addAttribute("currentAndForecastSevenDaysWeatherData", currentAndForecastSevenDaysWeatherData);
         model.addAttribute("cityName", defaultCityName);
         return "currentAndForecastWeather";
     }
 
-    @GetMapping("/weather/callAPI")
+    @GetMapping("/weather/givenCityName")
     public String getCurrentAndForecastWeatherDataForCityName(@RequestParam String cityName, Model model) {
         OpenWeatherMapOneCallDto currentAndForecastSevenDaysWeatherData = weatherService.getWeatherConditions(cityName);
         model.addAttribute("cityName", cityName);
@@ -35,7 +37,6 @@ public class WeatherConditionsController {
     }
 
     @ExceptionHandler(OpenWeatherMapCityNotFoundException.class)
-    @GetMapping("/weather/callAPI-error")
     public String getCurrentAndForecastWeatherDataForCityNameError(OpenWeatherMapCityNotFoundException exception, Model model) {
         model.addAttribute("OpenWeatherMapCityNotFoundException", exception);
         return "currentAndForecastWeather";
